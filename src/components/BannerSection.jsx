@@ -16,7 +16,7 @@ const BannerSection = () => {
     return (
         <section className="relative overflow-hidden">
             {/* Background */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ede9fe_0%,white_65%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ede9fe_0%,white_65%)]"/>
 
             <div className="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col items-center justify-center px-6 py-24 text-center">
 
