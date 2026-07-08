@@ -15,10 +15,9 @@ import { Label } from "@/components/ui/label";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
-import { signUp } from "@/lib/auth-client";
-import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { RoleSelect } from "@/components/RoleSelect";
+import { LoaderCircle } from "lucide-react";
 
 const SignUpPage = () => {
 
@@ -26,8 +25,6 @@ const SignUpPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
 
 
     const [name, setName] = useState("");
@@ -39,6 +36,8 @@ const SignUpPage = () => {
 
     const handleSignup = async (e) => {
         e.preventDefault();
+
+         setIsLoading(true);
 
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/api/send-email`,
@@ -184,9 +183,17 @@ const SignUpPage = () => {
 
                             <Button
                                 type="submit"
-                                className="h-11 w-full cursor-pointer rounded-xl bg-[#6633ff] hover:bg-[#5522ee]"
+                                disabled={isLoading}
+                                className="h-11 w-full rounded-xl bg-[#6633ff] hover:bg-[#5522ee]"
                             >
-                                Sign Up
+                                {isLoading ? (
+                                    <>
+                                        <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
+                                        Creating Account...
+                                    </>
+                                ) : (
+                                    "Sign Up"
+                                )}
                             </Button>
 
                             <div className="relative w-full py-2">
