@@ -40,36 +40,37 @@ const SignUpPage = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        setError("");
-        setSuccess("");
-        setIsLoading(true);
-
-        try {
-            const { data, error: authError } = await signUp.email({
-                email,
-                password,
-                name,
-                role,
-            });
-
-            if (authError) {
-                setError(authError.message || "Something went wrong during signup.");
-            } else {
-                setSuccess("Account created successfully! Welcome.");
-                setName("");
-                setEmail("");
-                setPassword("");
-                // console.log(data)
-                router.push('/')
-                toast.success("Account created successfully!");
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/api/send-email`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    name,
+                }),
             }
-        } catch (err) {
-            toast.error(err.message || "An unexpected network error occurred.");
-        } finally {
-            setIsLoading(false);
-        }
-    };
+        );
 
+        const result = await res.json();
+
+        if (result.success) {
+
+            localStorage.setItem(
+                "signupData",
+                JSON.stringify({
+                    name,
+                    email,
+                    password,
+                    role,
+                })
+            );
+
+            router.push("/auth/verify");
+        }
+    }
 
 
     return (
