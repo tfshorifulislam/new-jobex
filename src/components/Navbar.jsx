@@ -12,6 +12,7 @@ import { useSession } from "@/lib/auth-client";
 import AvatarComponent from "./Avatar";
 import LoginSignUp from "./Login&SignUp";
 import { DropdownMenuIcons } from "./DropDownButton";
+import { BriefcaseBusiness } from "lucide-react";
 
 export default function Navbar() {
 
@@ -24,8 +25,26 @@ export default function Navbar() {
 
                 {/* Left */}
                 <div>
-                    <Link href="/" className="text-2xl font-bold">
-                        NewJobex
+                    <Link
+                        href="/"
+                        className="flex items-center gap-2"
+                    >
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-[#6633ff] to-indigo-500 text-white shadow-lg">
+                            <BriefcaseBusiness className="h-5 w-5" />
+                        </div>
+
+                        <div className="flex flex-col leading-none">
+                            <span className="text-2xl font-extrabold tracking-tight">
+                                <span className="bg-linear-to-r from-[#6633ff] to-indigo-500 bg-clip-text text-transparent">
+                                    NewJob
+                                </span>
+                                <span className="text-gray-900">Ex</span>
+                            </span>
+
+                            <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-gray-500">
+                                JOB PLATFORM
+                            </span>
+                        </div>
                     </Link>
                 </div>
 
