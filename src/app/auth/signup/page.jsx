@@ -15,10 +15,55 @@ import { Label } from "@/components/ui/label";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
+import { signUp } from "@/lib/auth-client";
 
 const SignUpPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    // const [role, setRole] = useState("seeker");
+
+
+
+    const handleSignup = async (e) => {
+        e.preventDefault();
+
+        setError("");
+        setSuccess("");
+        setIsLoading(true);
+
+        try {
+            const { data, error: authError } = await signUp.email({
+                email,
+                password,
+                name,
+                // role,
+            });
+
+            if (authError) {
+                setError(authError.message || "Something went wrong during signup.");
+            } else {
+                setSuccess("Account created successfully! Welcome.");
+                setName("");
+                setEmail("");
+                setPassword("");
+                console.log(data)
+            }
+        } catch (err) {
+            setError("An unexpected network error occurred.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
@@ -45,8 +90,8 @@ const SignUpPage = () => {
 
                 <CardContent>
 
-                    <form className="space-y-5">
-                        <div className="space-y-2">
+                    <form className="space-y-5" onSubmit={handleSignup}>
+                        <div className="space-y-2" name="name">
                             <Label htmlFor="name">
                                 Full Name
                             </Label>
@@ -57,10 +102,11 @@ const SignUpPage = () => {
                                 type="text"
                                 placeholder="John Doe"
                                 className="h-11"
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </div>
 
-                        <div className="space-y-2">
+                        <div className="space-y-2" name="email">
                             <Label htmlFor="email">
                                 Email Address
                             </Label>
@@ -71,6 +117,7 @@ const SignUpPage = () => {
                                 type="email"
                                 placeholder="you@example.com"
                                 className="h-11"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 
@@ -91,7 +138,7 @@ const SignUpPage = () => {
 
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="space-y-2" name="password">
                                 <div className="relative">
                                     <Input
                                         id="password"
@@ -102,6 +149,7 @@ const SignUpPage = () => {
                                         minLength={6}
                                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_+\-=\[\]{};':\\|,.<>\/?])[A-Za-z\d@$!%*?&^#()_+\-=\[\]{};':\\|,.<>\/?]{6,}$"
                                         title="Password must contain at least 6 characters, one uppercase letter, one lowercase letter, one number, and one special character."
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
 
                                     <button
@@ -123,6 +171,7 @@ const SignUpPage = () => {
                         <div className="flex flex-col gap-3">
 
                             <Button
+                                type="submit"
                                 className="h-11 w-full cursor-pointer rounded-xl bg-[#6633ff] hover:bg-[#5522ee]"
                             >
                                 Sign Up
