@@ -11,8 +11,8 @@ import { Button } from "./ui/button";
 
 export default function Navbar() {
     return (
-        <header className="border-b">
-            <div className="container mx-auto flex h-16 items-center justify-between">
+        <header className="border-b sticky">
+            <div className="container mx-auto flex h-16 items-center justify-between px-2 md:px-0">
 
                 {/* Left */}
                 <div>
@@ -22,7 +22,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Center */}
-                <NavigationMenu>
+                <NavigationMenu className="hidden md:block">
                     <NavigationMenuList>
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>Jobs</NavigationMenuTrigger>
@@ -82,11 +82,17 @@ export default function Navbar() {
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                {/* Right */}
                 <div className="flex items-center gap-3">
-                    <Link href="/login">Login</Link>
+                    <Link href="/login">
+                        <Button variant="outline" className="cursor-pointer">
+                            Login
+                        </Button>
+                    </Link>
+
                     <Link href="/signup">
-                        <Button>Sign Up</Button>
+                        <Button className="cursor-pointer">
+                            Sign Up
+                        </Button>
                     </Link>
                 </div>
             </div>
