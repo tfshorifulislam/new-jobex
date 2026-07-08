@@ -16,8 +16,12 @@ import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
 import { signUp } from "@/lib/auth-client";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
+
+    const router = useRouter()
 
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -54,10 +58,12 @@ const SignUpPage = () => {
                 setName("");
                 setEmail("");
                 setPassword("");
-                console.log(data)
+                // console.log(data)
+                router.push('/')
+                toast.success("Account created successfully!");
             }
         } catch (err) {
-            setError("An unexpected network error occurred.");
+            toast.error(err.message || "An unexpected network error occurred.");
         } finally {
             setIsLoading(false);
         }

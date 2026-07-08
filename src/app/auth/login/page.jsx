@@ -16,6 +16,7 @@ import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
 
@@ -51,7 +52,8 @@ const LoginPage = () => {
                 setSuccess("Signed in successfully! Redirecting...");
                 setEmail("");
                 setPassword("");
-                console.log(data)
+                // console.log(data)
+                toast.success('Welcome Back')
             }
         } catch (err) {
             setError("An unexpected network error occurred.");
@@ -148,7 +150,11 @@ const LoginPage = () => {
 
                         </div>
 
-
+                        {error && (
+                            <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600">
+                                {error}
+                            </div>
+                        )}
                         <div className="flex flex-col gap-3">
 
 

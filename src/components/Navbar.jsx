@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useSession } from "@/lib/auth-client";
 import AvatarComponent from "./Avatar";
 import LoginSignUp from "./Login&SignUp";
+import { DropdownMenuIcons } from "./DropDownButton";
 
 export default function Navbar() {
 
@@ -110,11 +111,10 @@ export default function Navbar() {
                 {/* dynamic system */}
                 {
                     user ?
-                        <AvatarComponent />
+                        <DropdownMenuIcons />
                         :
                         <LoginSignUp />
                 }
-
             </div>
         </header>
     );

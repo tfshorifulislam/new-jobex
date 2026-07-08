@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 import { Inter } from "next/font/google";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,6 +24,11 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col bg-linear-to-br from-blue-50 via-white to-blue-100">
         <Navbar />
         {children}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          theme="light"
+        />
       </body>
     </html>
   );
