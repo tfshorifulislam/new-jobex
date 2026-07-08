@@ -14,7 +14,7 @@ const BannerSection = () => {
     ]
 
     return (
-        <section className="relative overflow-hidden bg-white">
+        <section className="relative overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#ede9fe_0%,white_65%)]" />
 
@@ -22,7 +22,7 @@ const BannerSection = () => {
 
                 {/* Badge */}
                 <div className="rounded-full border border-[#6633ff]/20 bg-[#6633ff]/10 px-5 py-2 text-sm font-medium text-[#6633ff]">
-                    Wold wide Smart Job Portal
+                    Smart Job Portal for Global Careers
                 </div>
 
                 {/* Small Heading */}
@@ -58,10 +58,10 @@ const BannerSection = () => {
                     ))}
                 </div>
                 {/* Buttons */}
-                <div className="mt-8 flex gap-4 flex-row">
+                <div className="mt-8 flex w-full max-w-md flex-wrap justify-center gap-4">
                     <Button
                         size="lg"
-                        className="rounded-lg bg-[#6633ff] px-10 hover:bg-[#5522ee]"
+                        className="flex-1 min-w-40 rounded-lg bg-[#6633ff] hover:bg-[#5522ee] h-10"
                     >
                         Find Jobs
                     </Button>
@@ -69,14 +69,14 @@ const BannerSection = () => {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="rounded-lg border-[#6633ff] px-10 text-[#6633ff] hover:bg-[#6633ff] hover:text-white"
+                        className="flex-1 min-w-40 rounded-lg border-[#6633ff] text-[#6633ff] hover:bg-[#6633ff] hover:text-white h-10"
                     >
                         Post a Job
                     </Button>
                 </div>
 
                 {/* Stats */}
-                <div className="mt-10 md:mt-20 grid w-full max-w-4xl grid-cols-2 gap-6 rounded-3xl border bg-white p-8 shadow-xl md:grid-cols-4">
+                <div className="mt-10 md:mt-20 grid w-full max-w-4xl grid-cols-2 gap-6 rounded-lg border bg-white p-8 shadow-md md:grid-cols-4">
 
                     <div>
                         <h2 className="text-3xl font-bold text-[#6633ff]">

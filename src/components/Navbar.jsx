@@ -19,7 +19,7 @@ export default function Navbar() {
     const user = session?.user;
 
     return (
-        <header className="border-b sticky">
+        <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-md">
             <div className="container mx-auto flex h-16 items-center justify-between px-2 md:px-0">
 
                 {/* Left */}
