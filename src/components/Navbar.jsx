@@ -83,13 +83,13 @@ export default function Navbar() {
                 </NavigationMenu>
 
                 <div className="flex items-center gap-3">
-                    <Link href="/login">
+                    <Link href="/auth/login">
                         <Button variant="outline" className="cursor-pointer">
                             Login
                         </Button>
                     </Link>
 
-                    <Link href="/signup">
+                    <Link href="/auth/signup">
                         <Button className="cursor-pointer">
                             Sign Up
                         </Button>
