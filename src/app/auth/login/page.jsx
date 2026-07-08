@@ -4,10 +4,8 @@ import { Button } from "@/components/ui/button";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import {
     Card,
-    CardAction,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -17,10 +15,51 @@ import { Label } from "@/components/ui/label";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
+import { signIn } from "@/lib/auth-client";
 
 const LoginPage = () => {
 
+    // Form fields
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    // UI States
+    const [isVisible, setIsVisible] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+
+
+    const handleSignin = async (e) => {
+        e.preventDefault();
+
+        setError("");
+        setSuccess("");
+        setIsLoading(true);
+
+        try {
+            const { data, error: authError } = await signIn.email({
+                email,
+                password,
+                callbackURL: "/"
+            });
+
+            if (authError) {
+                setError(authError.message || "Invalid email or password.");
+            } else {
+                setSuccess("Signed in successfully! Redirecting...");
+                setEmail("");
+                setPassword("");
+                console.log(data)
+            }
+        } catch (err) {
+            setError("An unexpected network error occurred.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
@@ -47,8 +86,8 @@ const LoginPage = () => {
 
                 <CardContent>
 
-                    <form className="space-y-5">
-                        <div className="space-y-2">
+                    <form className="space-y-5" onSubmit={handleSignin}>
+                        <div className="space-y-2" name="email">
                             <Label htmlFor="email">
                                 Email Address
                             </Label>
@@ -59,12 +98,13 @@ const LoginPage = () => {
                                 type="email"
                                 placeholder="you@example.com"
                                 className="h-11"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 
                         <div className="space-y-2">
 
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between" >
 
                                 <Label htmlFor="password">
                                     Password
@@ -79,9 +119,10 @@ const LoginPage = () => {
 
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="space-y-2" name="password">
                                 <div className="relative">
                                     <Input
+                                        onChange={(e) => setPassword(e.target.value)}
                                         id="password"
                                         type={showPassword ? "text" : "password"}
                                         placeholder="Enter your password"
@@ -108,48 +149,49 @@ const LoginPage = () => {
                         </div>
 
 
+                        <div className="flex flex-col gap-3">
+
+
+                            <Button
+                                type='submit'
+                                className="h-11 w-full rounded-xl bg-[#6633ff] hover:bg-[#5522ee]"
+                            >
+                                Login
+                            </Button>
+
+
+                            <div className="relative w-full py-2">
+
+                                <div className="absolute inset-0 flex items-center">
+                                    <span className="w-full border-t" />
+                                </div>
+
+                                <div className="relative flex justify-center text-xs uppercase">
+                                    <span className="px-3 text-muted-foreground">
+                                        OR
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+
+                            <Button
+                                variant="outline"
+                                className="h-11 w-full rounded-xl"
+                            >
+                                <FaGoogle className="mr-2 h-4 w-4" />
+                                Continue with Google
+                            </Button>
+
+
+                        </div>
+
                     </form>
 
                 </CardContent>
 
 
-
-                <CardFooter className="flex flex-col gap-3">
-
-
-                    <Button
-                        className="h-11 w-full rounded-xl bg-[#6633ff] hover:bg-[#5522ee]"
-                    >
-                        Login
-                    </Button>
-
-
-                    <div className="relative w-full py-2">
-
-                        <div className="absolute inset-0 flex items-center">
-                            <span className="w-full border-t" />
-                        </div>
-
-                        <div className="relative flex justify-center text-xs uppercase">
-                            <span className="px-3 text-muted-foreground">
-                                OR
-                            </span>
-                        </div>
-
-                    </div>
-
-
-
-                    <Button
-                        variant="outline"
-                        className="h-11 w-full rounded-xl"
-                    >
-                        <FaGoogle className="mr-2 h-4 w-4" />
-                        Continue with Google
-                    </Button>
-
-
-                </CardFooter>
 
 
             </Card>
