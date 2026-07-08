@@ -18,6 +18,7 @@ import { useState } from "react";
 import { signUp } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { RoleSelect } from "@/components/RoleSelect";
 
 const SignUpPage = () => {
 
@@ -32,7 +33,7 @@ const SignUpPage = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [role, setRole] = useState("seeker");
+    const [role, setRole] = useState("seeker");
 
 
 
@@ -48,7 +49,7 @@ const SignUpPage = () => {
                 email,
                 password,
                 name,
-                // role,
+                role,
             });
 
             if (authError) {
@@ -128,9 +129,7 @@ const SignUpPage = () => {
                         </div>
 
                         <div className="space-y-2">
-
                             <div className="flex items-center justify-between">
-
                                 <Label htmlFor="password">
                                     Password
                                 </Label>
@@ -172,6 +171,12 @@ const SignUpPage = () => {
                             </div>
 
                         </div>
+
+                        {/* role based authentication */}
+                        <RoleSelect
+                            value={role}
+                            onValueChange={setRole}
+                        />
 
                         {/* card footer */}
                         <div className="flex flex-col gap-3">
