@@ -123,6 +123,7 @@ const LoginPage = () => {
                         Login
                     </Button>
 
+
                     <div className="relative w-full py-2">
 
                         <div className="absolute inset-0 flex items-center">
