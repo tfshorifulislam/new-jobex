@@ -85,7 +85,25 @@ export default function Navbar() {
                                     </NavigationMenuLink>
                                 </div>
                             </NavigationMenuContent>
+
                         </NavigationMenuItem>
+
+                        {user && (
+                            <NavigationMenuItem>
+                                <NavigationMenuLink href="/dashboard">
+                                    Dashboard
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        )}
+
+                        {user && (
+                            <NavigationMenuItem>
+                                <NavigationMenuLink href="/profile">
+                                    Profile
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        )}
+
                     </NavigationMenuList>
                 </NavigationMenu>
 
