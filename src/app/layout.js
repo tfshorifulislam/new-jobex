@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={` ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-linear-to-br from-blue-50 via-white to-blue-100">
         <Navbar />
         {children}
       </body>

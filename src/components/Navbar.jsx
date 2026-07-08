@@ -1,3 +1,4 @@
+'use client';
 import {
     NavigationMenu,
     NavigationMenuList,
@@ -7,9 +8,15 @@ import {
     NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { useSession } from "@/lib/auth-client";
+import AvatarComponent from "./Avatar";
+import LoginSignUp from "./Login&SignUp";
 
 export default function Navbar() {
+
+    const { data: session, isPending } = useSession()
+    const user = session?.user;
+
     return (
         <header className="border-b sticky">
             <div className="container mx-auto flex h-16 items-center justify-between px-2 md:px-0">
@@ -82,19 +89,14 @@ export default function Navbar() {
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                <div className="flex items-center gap-3">
-                    <Link href="/auth/login">
-                        <Button variant="outline" className="cursor-pointer">
-                            Login
-                        </Button>
-                    </Link>
+                {/* dynamic system */}
+                {
+                    user ?
+                        <AvatarComponent />
+                        :
+                        <LoginSignUp />
+                }
 
-                    <Link href="/auth/signup">
-                        <Button className="cursor-pointer">
-                            Sign Up
-                        </Button>
-                    </Link>
-                </div>
             </div>
         </header>
     );
