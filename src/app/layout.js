@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
+        <Footer />
         <ToastContainer
           position="top-right"
           autoClose={3000}

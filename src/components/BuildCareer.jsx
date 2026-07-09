@@ -120,7 +120,6 @@ const BuildCareer = () => {
                             </div>
 
                         </div>
-
                         {/* Card 3 */}
                         <div className="w-full max-w-sm rounded-3xl bg-white p-6 shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-2xl md:absolute md:bottom-0 md:right-8 md:w-64">
 
