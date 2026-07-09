@@ -1,10 +1,13 @@
 "use client"
 
 import {
+    Bookmark,
+    BriefcaseBusiness,
     CreditCardIcon,
     LogOutIcon,
     SettingsIcon,
     UserIcon,
+    
 } from "lucide-react"
 
 import {
@@ -46,8 +49,12 @@ export function DropdownMenuIcons() {
                     Dashboard
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                    <CreditCardIcon />
-                    Billing
+                    <Bookmark />
+                    Saved Jobex
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                    <BriefcaseBusiness />
+                    Applied Jobex
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                     <SettingsIcon />
