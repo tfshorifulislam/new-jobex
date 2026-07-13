@@ -34,7 +34,7 @@ const SignUpPage = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-         setIsLoading(true);
+        setIsLoading(true);
 
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/api/send-email`,
@@ -43,12 +43,8 @@ const SignUpPage = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    email,
-                    name,
-                }),
-            }
-        );
+                body: JSON.stringify({ email, name, }),
+            });
 
         const result = await res.json();
 
@@ -56,13 +52,7 @@ const SignUpPage = () => {
 
             localStorage.setItem(
                 "signupData",
-                JSON.stringify({
-                    name,
-                    email,
-                    password,
-                    role,
-                })
-            );
+                JSON.stringify({ name, email, password, role, }));
 
             router.push("/auth/verify");
         }

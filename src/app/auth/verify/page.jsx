@@ -19,7 +19,7 @@ const Verify = () => {
         const signupData = JSON.parse(localStorage.getItem("signupData"));
 
         if (!signupData) {
-            return toast.error("Signup data not found.");
+            return toast.error("Signup data not found. please try again!");
         }
 
         const res = await fetch(
