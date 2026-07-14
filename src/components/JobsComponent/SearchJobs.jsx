@@ -2,11 +2,21 @@
 
 import { MapPin, Search } from "lucide-react";
 import { Button } from "../ui/button";
+import { useState } from "react";
 
-const SearchJobs = () => {
- 
+const SearchJobs = ({ setJobs, setLocation }) => {
+
+  const [search, setSearch] = useState("");
+  const [location, setLocation] = useState("");
+
+  const handleSearch = async () => {
+    const res = await fetch(`/api/jobs?search=${search}&location=${location}`);
+    const data = await res.json();
+    setJobs(data);
+  }
+
   return (
-    <form className="space-y-3">
+    <div className="space-y-3">
       <div className="relative">
         <Search
           className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
@@ -15,6 +25,8 @@ const SearchJobs = () => {
 
         <input
           type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="Job title, keyword..."
           className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600"
         />
@@ -28,6 +40,8 @@ const SearchJobs = () => {
 
         <input
           type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
           placeholder="Location"
           className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600"
         />
@@ -35,11 +49,12 @@ const SearchJobs = () => {
 
       <Button
         type="submit"
+        onClick={handleSearch}
         className="w-full rounded-xl bg-blue-600 hover:bg-blue-700"
       >
         Search Jobs
       </Button>
-    </form>
+    </div>
   );
 };
 

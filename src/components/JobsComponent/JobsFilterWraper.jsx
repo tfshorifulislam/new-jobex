@@ -7,7 +7,7 @@ import WorkplaceType from "./WorkplaceType";
 import JobType from "./JobType";
 import JobPostTime from "./JobPostTime";
 
-const JobsFilterWrapper = () => {
+const JobsFilterWrapper = ({ setJobs, setLocation }) => {
 
     return (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6">
@@ -27,7 +27,9 @@ const JobsFilterWrapper = () => {
                 </button> */}
             </div>
 
-            <SearchJobs />
+            <SearchJobs
+                setJobs={setJobs}
+            />
 
             <WorkplaceType />
 

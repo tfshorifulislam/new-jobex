@@ -1,7 +1,11 @@
+'use client'
 import JobsFilterWraper from '@/components/JobsComponent/JobsFilterWraper';
 import JobCard from '@/components/JobsComponent/JobCard';
+import { useState } from 'react';
 
 const JobsPage = () => {
+
+    const [jobs, setJobs] = useState([]);
 
     return (
         <div className="min-h-screen bg-gray-50 p-4 md:p-8 font-sans">
@@ -14,11 +18,15 @@ const JobsPage = () => {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
 
                 {/* LEFT SIDEBAR: FILTERS */}
-                <JobsFilterWraper />
+                <JobsFilterWraper
+                    setJobs={setJobs}
+                />
 
                 {/* RIGHT CONTENT: SEARCH & JOB CARDS */}
                 <div className="lg:col-span-3 space-y-4">
-                   <JobCard/>
+                    <JobCard
+                        jobs={jobs}
+                    />
                 </div>
             </div>
         </div>
