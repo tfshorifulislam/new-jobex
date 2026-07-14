@@ -24,7 +24,7 @@ const JobContainer = ({ jobs }) => {
                 setAllJobs={setAllJobs} />
 
             <div className="lg:col-span-3">
-                <JobCard jobs={jobs} />
+                <JobCard jobs={allJobs} />
             </div>
         </div>
     );

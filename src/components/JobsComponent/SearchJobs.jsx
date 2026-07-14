@@ -2,13 +2,24 @@
 
 import { MapPin, Search } from "lucide-react";
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { getJobs } from "@/lib/jobs";
 
 const SearchJobs = ({ filters, setFilters, setAllJobs }) => {
 
   const handleSearch = async () => {
 
-  }
+    console.log('filter',filters);
+    const data = await getJobs(
+      filters.search,
+      filters.location,
+      filters.workplaceType,
+      filters.jobType,
+      filters.postedWithin
+    );
+
+    setAllJobs(data);
+     console.log(data);
+  };
 
   return (
     <div className="space-y-3">
