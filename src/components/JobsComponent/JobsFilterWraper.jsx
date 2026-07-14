@@ -7,13 +7,17 @@ import SearchJobs from './SearchJobs';
 
 const JobsFilterWraper = () => {
 
-  
+
 
 
 
     const [selectedWorkplaceTypes, setSelectedWorkplaceTypes] = useState([]);
     const [selectedJobTypes, setSelectedJobTypes] = useState([]);
     const [selectedPostedTime, setSelectedPostedTime] = useState('All');
+
+    // সার্চ ইনপুট স্টেট
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const [searchLocation, setSearchLocation] = useState('');
 
 
     const [salaryMin, setSalaryMin] = useState('');
@@ -57,7 +61,10 @@ const JobsFilterWraper = () => {
                 <button onClick={handleClearAll} className="text-xs text-red-500 hover:underline">Clear All</button>
             </div>
 
-            <SearchJobs/>
+            {/* Search Bar Container */}
+            <SearchJobs
+                searchKeyword={searchKeyword}
+                searchLocation={searchLocation} />
 
             {/* Workplace Type (Multi-select Checkbox) */}
             <WorkplaceType selectedWorkplaceTypes={selectedWorkplaceTypes} />

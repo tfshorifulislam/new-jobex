@@ -2,6 +2,7 @@ import { MapPin, Search } from 'lucide-react';
 import React from 'react';
 
 const SearchJobs = ({ searchKeyword, searchLocation }) => {
+    
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         console.log("Searching with states:", {
@@ -18,7 +19,7 @@ const SearchJobs = ({ searchKeyword, searchLocation }) => {
     return (
         <form onSubmit={handleSearchSubmit} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 space-y-3">
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 gap-2">
                 <div className="relative">
                     <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
                     <input

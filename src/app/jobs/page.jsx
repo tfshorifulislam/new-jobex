@@ -9,13 +9,6 @@ const dummyJobs = [];
 
 const JobsPage = () => {
 
-    // সার্চ ইনপুট স্টেট
-    const [searchKeyword, setSearchKeyword] = useState('');
-    const [searchLocation, setSearchLocation] = useState('');
-
-
-    
-
     return (
         <div className="min-h-screen bg-gray-50 p-4 md:p-8 font-sans">
             {/* Top Header */}
@@ -31,9 +24,6 @@ const JobsPage = () => {
 
                 {/* RIGHT CONTENT: SEARCH & JOB CARDS */}
                 <div className="lg:col-span-3 space-y-4">
-
-                    {/* Search Bar Container */}
-                    
 
                     {/* Job Cards List */}
                     <div className="space-y-4">
