@@ -21,6 +21,13 @@ const WorkplaceType = ({ filters, setFilters }) => {
       </div>
 
       <RadioGroup
+        value={filters.workplaceType}
+        onValueChange={(value) =>
+          setFilters((prev) => ({
+            ...prev,
+            workplaceType: value,
+          }))
+        }
         className="space-y-2"
       >
         {workplaceTypes.map((type) => (
@@ -28,7 +35,7 @@ const WorkplaceType = ({ filters, setFilters }) => {
             key={type.value}
             htmlFor={type.value}
             className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
-              '' === type.value
+              filters.workplaceType === type.value
                 ? "border-blue-600 bg-blue-50"
                 : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
             }`}
