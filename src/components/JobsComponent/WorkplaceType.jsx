@@ -10,10 +10,7 @@ const workplaceTypes = [
   { label: "Remote", value: "remote" },
 ];
 
-const WorkplaceType = ({
-  selectedWorkplaceType,
-  setSelectedWorkplaceType,
-}) => {
+const WorkplaceType = () => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
@@ -24,8 +21,6 @@ const WorkplaceType = ({
       </div>
 
       <RadioGroup
-        value={selectedWorkplaceType}
-        onValueChange={setSelectedWorkplaceType}
         className="space-y-2"
       >
         {workplaceTypes.map((type) => (
@@ -33,7 +28,7 @@ const WorkplaceType = ({
             key={type.value}
             htmlFor={type.value}
             className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
-              selectedWorkplaceType === type.value
+              '' === type.value
                 ? "border-blue-600 bg-blue-50"
                 : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
             }`}

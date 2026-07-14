@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 
 import SearchJobs from "./SearchJobs";
@@ -9,57 +8,6 @@ import JobType from "./JobType";
 import JobPostTime from "./JobPostTime";
 
 const JobsFilterWrapper = () => {
-    const [filters, setFilters] = useState({
-        keyword: "",
-        location: "",
-
-        workplaceTypes: [],
-        jobTypes: [],
-
-        postedTime: "All",
-
-        salaryMin: "",
-        salaryMax: "",
-    });
-
-    // Checkbox Handle
-    const handleCheckbox = (field, value) => {
-        setFilters((prev) => ({
-            ...prev,
-            [field]: prev[field].includes(value)
-                ? prev[field].filter((item) => item !== value)
-                : [...prev[field], value],
-        }));
-    };
-
-    // Radio Handle
-    const handleRadio = (field, value) => {
-        setFilters((prev) => ({
-            ...prev,
-            [field]: value,
-        }));
-    };
-
-    // Input Handle
-    const handleInput = (field, value) => {
-        setFilters((prev) => ({
-            ...prev,
-            [field]: value,
-        }));
-    };
-
-    // Clear All
-    const handleClearAll = () => {
-        setFilters({
-            keyword: "",
-            location: "",
-            workplaceTypes: [],
-            jobTypes: [],
-            postedTime: "All",
-            salaryMin: "",
-            salaryMax: "",
-        });
-    };
 
     return (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6">
@@ -71,41 +19,21 @@ const JobsFilterWrapper = () => {
                     <h2 className="font-semibold">Filters</h2>
                 </div>
 
-                <button
+                {/* <button
                     onClick={handleClearAll}
                     className="text-sm text-red-500 hover:text-red-600"
                 >
                     Clear All
-                </button>
+                </button> */}
             </div>
 
-            <SearchJobs
-                keyword={filters.keyword}
-                location={filters.location}
-                onKeywordChange={(value) => handleInput("keyword", value)}
-                onLocationChange={(value) => handleInput("location", value)}
-            />
+            <SearchJobs />
 
-            <WorkplaceType
-                selectedWorkplaceTypes={filters.workplaceTypes}
-                handleWorkplaceTypeChange={(value) =>
-                    handleCheckbox("workplaceTypes", value)
-                }
-            />
+            <WorkplaceType />
 
-            <JobType
-                selectedJobTypes={filters.jobTypes}
-                handleJobTypeChange={(value) =>
-                    handleCheckbox("jobTypes", value)
-                }
-            />
+            <JobType />
 
-            <JobPostTime
-                selectedPostedTime={filters.postedTime}
-                setSelectedPostedTime={(value) =>
-                    handleRadio("postedTime", value)
-                }
-            />
+            <JobPostTime />
         </div>
     );
 };

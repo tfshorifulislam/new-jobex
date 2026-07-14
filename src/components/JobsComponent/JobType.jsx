@@ -11,10 +11,7 @@ const jobTypes = [
   { label: "Internship", value: "internship" },
 ];
 
-const JobType = ({
-  selectedJobType,
-  setSelectedJobType,
-}) => {
+const JobType = () => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
@@ -25,8 +22,6 @@ const JobType = ({
       </div>
 
       <RadioGroup
-        value={selectedJobType}
-        onValueChange={setSelectedJobType}
         className="space-y-2"
       >
         {jobTypes.map((type) => (
@@ -34,7 +29,7 @@ const JobType = ({
             key={type.value}
             htmlFor={type.value}
             className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
-              selectedJobType === type.value
+              '' === type.value
                 ? "border-blue-600 bg-blue-50"
                 : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
             }`}
