@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Search, MapPin, Briefcase, Calendar, SlidersHorizontal, Percent } from 'lucide-react';
 import JobType from '@/components/JobsComponent/JobType';
 import WorkplaceType from '@/components/JobsComponent/WorkplaceType';
+import JobPostTime from '@/components/JobsComponent/JobPostTime';
 
 // ডামি ডাটা (Dummy Data)
 const dummyJobs = [
@@ -162,23 +163,7 @@ const JobsPage = () => {
                     <JobType selectedJobTypes={selectedJobTypes} />
 
                     {/* Job Posted (Single-select Radio) */}
-                    <div>
-                        <h3 className="font-semibold text-sm text-gray-800 mb-2">Job Posted</h3>
-                        <div className="space-y-2 text-sm text-gray-600">
-                            {['All', 'Last Week', 'Last 3 Months', 'This Year'].map((time) => (
-                                <label key={time} className="flex items-center gap-2 cursor-pointer">
-                                    <input
-                                        type="radio"
-                                        name="posted"
-                                        checked={selectedPostedTime === time}
-                                        onChange={() => setSelectedPostedTime(time)}
-                                        className="text-blue-600 focus:ring-blue-500"
-                                    />
-                                    {time}
-                                </label>
-                            ))}
-                        </div>
-                    </div>
+                    <JobPostTime selectedPostedTime= {selectedPostedTime} />
 
                     {/* Salary Range (Inputs) */}
                     <div>
