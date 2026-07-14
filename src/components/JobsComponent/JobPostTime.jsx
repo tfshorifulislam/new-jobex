@@ -22,6 +22,13 @@ const JobPostTime = ({ filters, setFilters }) => {
       </div>
 
       <RadioGroup
+        value={filters.postedWithin}
+        onValueChange={(value) =>
+          setFilters((prev) => ({
+            ...prev,
+            postedWithin: value,
+          }))
+        }
         className="space-y-2"
       >
         {postedTimes.map((time) => {
@@ -31,11 +38,10 @@ const JobPostTime = ({ filters, setFilters }) => {
             <Label
               key={time}
               htmlFor={id}
-              className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
-                '' === time
+              className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${filters.postedWithin  === time
                   ? "border-blue-600 bg-blue-50"
                   : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
-              }`}
+                }`}
             >
               <span className="text-sm font-medium text-gray-700">
                 {time}
