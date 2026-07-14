@@ -1,16 +1,16 @@
-'use client';
+import React from 'react';
 
-const JobType = ({ selectedJobTypes }) => {
+const WorkplaceType = ({ selectedWorkplaceTypes }) => {
     return (
         <div>
-            <h3 className="font-semibold text-sm text-gray-800 mb-2">Job Type</h3>
+            <h3 className="font-semibold text-sm text-gray-800 mb-2">Workplace Type</h3>
             <div className="space-y-2 text-sm text-gray-600">
-                {['Full-Time', 'Part-Time', 'Contractual', 'Internship'].map((type) => (
+                {['Onsite', 'Hybrid', 'Remote'].map((type) => (
                     <label key={type} className="flex items-center gap-2 cursor-pointer">
                         <input
                             type="checkbox"
-                            checked={selectedJobTypes.includes(type)}
-                            onChange={() => handleJobTypeChange(type)}
+                            checked={selectedWorkplaceTypes.includes(type)}
+                            onChange={() => handleWorkplaceTypeChange(type)}
                             className="rounded text-blue-600 focus:ring-blue-500"
                         />
                         {type}
@@ -21,4 +21,4 @@ const JobType = ({ selectedJobTypes }) => {
     );
 };
 
-export default JobType;
+export default WorkplaceType;
