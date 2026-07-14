@@ -1,6 +1,5 @@
-import JobsFilterWraper from '@/components/JobsComponent/JobsFilterWraper';
-import JobCard from '@/components/JobsComponent/JobCard';
 import { getJobs } from '@/lib/jobs';
+import JobContainer from '@/components/JobsComponent/JobContainer';
 
 const JobsPage = async () => {
 
@@ -14,21 +13,9 @@ const JobsPage = async () => {
             </div>
 
             {/* Main Layout Grid */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
-
-                {/* LEFT SIDEBAR: FILTERS */}
-                <JobsFilterWraper
-                    // setJobs={setJobs}
-                />
-
-                {/* RIGHT CONTENT: SEARCH & JOB CARDS */}
-                <div className="lg:col-span-3 space-y-4">
-                    <JobCard
-                        jobs={jobs}
-                    />
-                </div>
-            </div>
+            <JobContainer jobs={jobs} />
         </div>
+
     );
 };
 

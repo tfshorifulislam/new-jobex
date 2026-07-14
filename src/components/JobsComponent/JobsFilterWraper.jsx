@@ -1,4 +1,3 @@
-"use client";
 
 import { SlidersHorizontal } from "lucide-react";
 
@@ -7,7 +6,7 @@ import WorkplaceType from "./WorkplaceType";
 import JobType from "./JobType";
 import JobPostTime from "./JobPostTime";
 
-const JobsFilterWrapper = ({ setJobs }) => {
+const JobsFilterWrapper = ({ filters, setFilters, setAllJobs }) => {
 
     return (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6">
@@ -19,23 +18,15 @@ const JobsFilterWrapper = ({ setJobs }) => {
                     <h2 className="font-semibold">Filters</h2>
                 </div>
 
-                {/* <button
-                    onClick={handleClearAll}
-                    className="text-sm text-red-500 hover:text-red-600"
-                >
-                    Clear All
-                </button> */}
             </div>
 
-            <SearchJobs
-                setJobs={setJobs}
-            />
+            <SearchJobs filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs}/>
 
-            <WorkplaceType />
+            <WorkplaceType filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs} />
 
-            <JobType />
+            <JobType filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs} />
 
-            <JobPostTime />
+            <JobPostTime filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs} />
         </div>
     );
 };

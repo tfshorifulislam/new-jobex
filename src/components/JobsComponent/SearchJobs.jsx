@@ -4,13 +4,10 @@ import { MapPin, Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
-const SearchJobs = ({ setJobs }) => {
-
-  const [search, setSearch] = useState("");
-  const [location, setLocation] = useState("");
+const SearchJobs = ({ filters, setFilters, setAllJobs }) => {
 
   const handleSearch = async () => {
-    
+
   }
 
   return (
@@ -23,8 +20,8 @@ const SearchJobs = ({ setJobs }) => {
 
         <input
           type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={filters.search}
+          onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
           placeholder="Job title, keyword..."
           className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600"
         />
@@ -38,8 +35,8 @@ const SearchJobs = ({ setJobs }) => {
 
         <input
           type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          value={filters.location}
+          onChange={(e) => setFilters(prev => ({ ...prev, location: e.target.value }))}
           placeholder="Location"
           className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600"
         />

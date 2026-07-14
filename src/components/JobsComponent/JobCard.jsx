@@ -4,7 +4,7 @@ import React from 'react';
 const JobCard = ({jobs}) => {
 
     return (
-        <div>
+        <div className='className="lg:col-span-3 space-y-4"'>
             {/* Job Cards List */}
             <div className="space-y-4">
                 {jobs.map((job) => (
