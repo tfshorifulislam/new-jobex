@@ -10,10 +10,7 @@ const SearchJobs = ({ setJobs }) => {
   const [location, setLocation] = useState("");
 
   const handleSearch = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/jobs?search=${search}&location=${location}`);
-    const data = await res.json();
-    console.log(data)
-    setJobs(data);
+    
   }
 
   return (

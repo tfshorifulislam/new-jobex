@@ -1,11 +1,10 @@
-'use client'
 import JobsFilterWraper from '@/components/JobsComponent/JobsFilterWraper';
 import JobCard from '@/components/JobsComponent/JobCard';
-import { useState } from 'react';
+import { getJobs } from '@/lib/jobs';
 
-const JobsPage = () => {
+const JobsPage = async () => {
 
-    const [jobs, setJobs] = useState([]);
+    const jobs = await getJobs();
 
     return (
         <div className="min-h-screen bg-gray-50 p-4 md:p-8 font-sans">
@@ -19,7 +18,7 @@ const JobsPage = () => {
 
                 {/* LEFT SIDEBAR: FILTERS */}
                 <JobsFilterWraper
-                    setJobs={setJobs}
+                    // setJobs={setJobs}
                 />
 
                 {/* RIGHT CONTENT: SEARCH & JOB CARDS */}
