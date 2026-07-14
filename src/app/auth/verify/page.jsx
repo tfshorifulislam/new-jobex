@@ -37,8 +37,10 @@ const Verify = () => {
         );
 
         const result = await res.json();
+        console.log(result)
 
         if (!result.success) {
+
             return toast.error(result.message);
         }
 

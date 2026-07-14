@@ -7,7 +7,7 @@ import WorkplaceType from "./WorkplaceType";
 import JobType from "./JobType";
 import JobPostTime from "./JobPostTime";
 
-const JobsFilterWrapper = ({ setJobs, setLocation }) => {
+const JobsFilterWrapper = ({ setJobs }) => {
 
     return (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6">

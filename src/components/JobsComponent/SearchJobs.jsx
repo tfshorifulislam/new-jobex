@@ -4,14 +4,15 @@ import { MapPin, Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
-const SearchJobs = ({ setJobs, setLocation }) => {
+const SearchJobs = ({ setJobs }) => {
 
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
 
   const handleSearch = async () => {
-    const res = await fetch(`/api/jobs?search=${search}&location=${location}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/jobs?search=${search}&location=${location}`);
     const data = await res.json();
+    console.log(data)
     setJobs(data);
   }
 
