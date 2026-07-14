@@ -1,8 +1,9 @@
 import { MapPin, Search } from 'lucide-react';
 import React from 'react';
+import { Button } from '../ui/button';
 
 const SearchJobs = ({ searchKeyword, searchLocation }) => {
-    
+
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         console.log("Searching with states:", {
@@ -40,11 +41,13 @@ const SearchJobs = ({ searchKeyword, searchLocation }) => {
                         className="w-full pl-10 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500"
                     />
                 </div>
-                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg text-sm transition-colors">
+                <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg text-sm transition-colors cursor-pointer">
                     Search
-                </button>
+                </Button>
             </div>
-            
+
         </form>
     );
 };

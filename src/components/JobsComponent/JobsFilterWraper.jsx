@@ -7,10 +7,6 @@ import SearchJobs from './SearchJobs';
 
 const JobsFilterWraper = () => {
 
-
-
-
-
     const [selectedWorkplaceTypes, setSelectedWorkplaceTypes] = useState([]);
     const [selectedJobTypes, setSelectedJobTypes] = useState([]);
     const [selectedPostedTime, setSelectedPostedTime] = useState('All');
@@ -22,6 +18,7 @@ const JobsFilterWraper = () => {
 
     const [salaryMin, setSalaryMin] = useState('');
     const [salaryMax, setSalaryMax] = useState('');
+
 
     // ---- হ্যান্ডলার ফাংশনসমূহ (ফিল্টার লজিক যুক্ত করতে সুবিধা হবে) ----
     const handleWorkplaceTypeChange = (type) => {
@@ -73,7 +70,9 @@ const JobsFilterWraper = () => {
             <JobType selectedJobTypes={selectedJobTypes} />
 
             {/* Job Posted (Single-select Radio) */}
-            <JobPostTime selectedPostedTime={selectedPostedTime} />
+            <JobPostTime
+                selectedPostedTime={selectedPostedTime}
+                setSelectedPostedTime={setSelectedPostedTime} />
         </div>
     );
 };
