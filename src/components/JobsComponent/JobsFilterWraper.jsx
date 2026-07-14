@@ -1,80 +1,113 @@
-import { SlidersHorizontal } from 'lucide-react';
-import React, { useState } from 'react';
-import WorkplaceType from './WorkplaceType';
-import JobType from './JobType';
-import JobPostTime from './JobPostTime';
-import SearchJobs from './SearchJobs';
+"use client";
 
-const JobsFilterWraper = () => {
+import { useState } from "react";
+import { SlidersHorizontal } from "lucide-react";
 
-    const [selectedWorkplaceTypes, setSelectedWorkplaceTypes] = useState([]);
-    const [selectedJobTypes, setSelectedJobTypes] = useState([]);
-    const [selectedPostedTime, setSelectedPostedTime] = useState('All');
+import SearchJobs from "./SearchJobs";
+import WorkplaceType from "./WorkplaceType";
+import JobType from "./JobType";
+import JobPostTime from "./JobPostTime";
 
-    // সার্চ ইনপুট স্টেট
-    const [searchKeyword, setSearchKeyword] = useState('');
-    const [searchLocation, setSearchLocation] = useState('');
+const JobsFilterWrapper = () => {
+    const [filters, setFilters] = useState({
+        keyword: "",
+        location: "",
 
+        workplaceTypes: [],
+        jobTypes: [],
 
-    const [salaryMin, setSalaryMin] = useState('');
-    const [salaryMax, setSalaryMax] = useState('');
+        postedTime: "All",
 
+        salaryMin: "",
+        salaryMax: "",
+    });
 
-    // ---- হ্যান্ডলার ফাংশনসমূহ (ফিল্টার লজিক যুক্ত করতে সুবিধা হবে) ----
-    const handleWorkplaceTypeChange = (type) => {
-        if (selectedWorkplaceTypes.includes(type)) {
-            setSelectedWorkplaceTypes(selectedWorkplaceTypes.filter(t => t !== type));
-        } else {
-            setSelectedWorkplaceTypes([...selectedWorkplaceTypes, type]);
-        }
+    // Checkbox Handle
+    const handleCheckbox = (field, value) => {
+        setFilters((prev) => ({
+            ...prev,
+            [field]: prev[field].includes(value)
+                ? prev[field].filter((item) => item !== value)
+                : [...prev[field], value],
+        }));
     };
 
-    const handleJobTypeChange = (type) => {
-        if (selectedJobTypes.includes(type)) {
-            setSelectedJobTypes(selectedJobTypes.filter(t => t !== type));
-        } else {
-            setSelectedJobTypes([...selectedJobTypes, type]);
-        }
+    // Radio Handle
+    const handleRadio = (field, value) => {
+        setFilters((prev) => ({
+            ...prev,
+            [field]: value,
+        }));
     };
 
+    // Input Handle
+    const handleInput = (field, value) => {
+        setFilters((prev) => ({
+            ...prev,
+            [field]: value,
+        }));
+    };
+
+    // Clear All
     const handleClearAll = () => {
-        setSearchKeyword('');
-        setSearchLocation('');
-        setSelectedWorkplaceTypes([]);
-        setSelectedJobTypes([]);
-        setSelectedPostedTime('All');
-        setSalaryMin('');
-        setSalaryMax('');
+        setFilters({
+            keyword: "",
+            location: "",
+            workplaceTypes: [],
+            jobTypes: [],
+            postedTime: "All",
+            salaryMin: "",
+            salaryMax: "",
+        });
     };
-
 
     return (
-        <div className="lg:col-span-1 bg-white p-5 rounded-xl shadow-sm border border-gray-100 h-fit space-y-6">
+        <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6">
 
-            <div className="flex justify-between items-center pb-3 border-b border-gray-100">
-                <span className="font-bold text-gray-700 flex items-center gap-2">
-                    <SlidersHorizontal size={18} /> Filter
-                </span>
-                <button onClick={handleClearAll} className="text-xs text-red-500 hover:underline">Clear All</button>
+            {/* Header */}
+            <div className="flex items-center justify-between border-b pb-4">
+                <div className="flex items-center gap-2">
+                    <SlidersHorizontal size={18} />
+                    <h2 className="font-semibold">Filters</h2>
+                </div>
+
+                <button
+                    onClick={handleClearAll}
+                    className="text-sm text-red-500 hover:text-red-600"
+                >
+                    Clear All
+                </button>
             </div>
 
-            {/* Search Bar Container */}
             <SearchJobs
-                searchKeyword={searchKeyword}
-                searchLocation={searchLocation} />
+                keyword={filters.keyword}
+                location={filters.location}
+                onKeywordChange={(value) => handleInput("keyword", value)}
+                onLocationChange={(value) => handleInput("location", value)}
+            />
 
-            {/* Workplace Type (Multi-select Checkbox) */}
-            <WorkplaceType selectedWorkplaceTypes={selectedWorkplaceTypes} />
+            <WorkplaceType
+                selectedWorkplaceTypes={filters.workplaceTypes}
+                handleWorkplaceTypeChange={(value) =>
+                    handleCheckbox("workplaceTypes", value)
+                }
+            />
 
-            {/* Job Type (Multi-select Checkbox) */}
-            <JobType selectedJobTypes={selectedJobTypes} />
+            <JobType
+                selectedJobTypes={filters.jobTypes}
+                handleJobTypeChange={(value) =>
+                    handleCheckbox("jobTypes", value)
+                }
+            />
 
-            {/* Job Posted (Single-select Radio) */}
             <JobPostTime
-                selectedPostedTime={selectedPostedTime}
-                setSelectedPostedTime={setSelectedPostedTime} />
+                selectedPostedTime={filters.postedTime}
+                setSelectedPostedTime={(value) =>
+                    handleRadio("postedTime", value)
+                }
+            />
         </div>
     );
 };
 
-export default JobsFilterWraper;
+export default JobsFilterWrapper;

@@ -1,24 +1,57 @@
-'use client';
+"use client";
 
-const JobType = ({ selectedJobTypes }) => {
-    return (
-        <div>
-            <h3 className="font-semibold text-sm text-gray-800 mb-2">Job Type</h3>
-            <div className="space-y-2 text-sm text-gray-600">
-                {['Full-Time', 'Part-Time', 'Contractual', 'Internship'].map((type) => (
-                    <label key={type} className="flex items-center gap-2 cursor-pointer">
-                        <input
-                            type="checkbox"
-                            checked={selectedJobTypes.includes(type)}
-                            onChange={() => handleJobTypeChange(type)}
-                            className="rounded text-blue-600 focus:ring-blue-500"
-                        />
-                        {type}
-                    </label>
-                ))}
-            </div>
-        </div>
-    );
+import { BriefcaseBusiness } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
+const jobTypes = [
+  { label: "Full-Time", value: "full-time" },
+  { label: "Part-Time", value: "part-time" },
+  { label: "Contractual", value: "contractual" },
+  { label: "Internship", value: "internship" },
+];
+
+const JobType = ({
+  selectedJobType,
+  setSelectedJobType,
+}) => {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-2">
+        <BriefcaseBusiness className="h-5 w-5 text-blue-600" />
+        <h3 className="text-sm font-semibold text-gray-900">
+          Job Type
+        </h3>
+      </div>
+
+      <RadioGroup
+        value={selectedJobType}
+        onValueChange={setSelectedJobType}
+        className="space-y-2"
+      >
+        {jobTypes.map((type) => (
+          <Label
+            key={type.value}
+            htmlFor={type.value}
+            className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
+              selectedJobType === type.value
+                ? "border-blue-600 bg-blue-50"
+                : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
+            }`}
+          >
+            <span className="text-sm font-medium text-gray-700">
+              {type.label}
+            </span>
+
+            <RadioGroupItem
+              id={type.value}
+              value={type.value}
+            />
+          </Label>
+        ))}
+      </RadioGroup>
+    </div>
+  );
 };
 
 export default JobType;
