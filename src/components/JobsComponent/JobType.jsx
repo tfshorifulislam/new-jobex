@@ -22,6 +22,13 @@ const JobType = ({ filters, setFilters }) => {
       </div>
 
       <RadioGroup
+        value={filters.jobType}
+        onValueChange={(value) =>
+          setFilters((prev) => ({
+            ...prev,
+            jobType: value,
+          }))
+        }
         className="space-y-2"
       >
         {jobTypes.map((type) => (
@@ -29,7 +36,7 @@ const JobType = ({ filters, setFilters }) => {
             key={type.value}
             htmlFor={type.value}
             className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
-              '' === type.value
+              filters.jobType === type.value
                 ? "border-blue-600 bg-blue-50"
                 : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
             }`}
