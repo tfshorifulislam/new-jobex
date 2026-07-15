@@ -1,15 +1,14 @@
-'use client';
-
-import JobDetails from '@/components/DetailsPageComponent/JobDetails';
-import { useParams } from 'next/navigation';
+import JobDetailsCard from '@/components/DetailsPageComponent/JobDetails';
+import { getJobsById } from '@/lib/jobs';
 import React from 'react';
 
-const JobDetailsPage = () => {
-    const { id } = useParams();
+const JobDetailsPage = async ({ params }) => {
+    const { id } = await params
+    const job = await getJobsById(id)
 
     return (
         <div>
-            <JobDetails id={id} />
+            <JobDetailsCard job={job} />
         </div>
     );
 };
