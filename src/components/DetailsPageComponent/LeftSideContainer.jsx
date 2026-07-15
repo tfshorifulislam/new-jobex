@@ -8,30 +8,30 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
 
             {/* Header */}
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                        <h1 className="text-2xl font-bold text-gray-900 md:text-3xl">
+                <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                        <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
                             {job.jobTitle}
                         </h1>
 
-                        <p className="mt-2 text-base font-medium text-blue-600">
+                        <p className="mt-2 text-sm sm:text-base font-medium text-blue-600">
                             {job.companyName}
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                        <button className="rounded-full border border-gray-200 p-2 transition hover:bg-gray-100">
+                    <div className="flex items-center gap-2 shrink-0">
+                        <button className="rounded-full border border-gray-200 p-2 hover:bg-gray-100 transition">
                             <Bookmark size={20} />
                         </button>
 
-                        <button className="rounded-full border border-gray-200 p-2 transition hover:bg-gray-100">
+                        <button className="rounded-full border border-gray-200 p-2 hover:bg-gray-100 transition">
                             <EllipsisVertical size={20} />
                         </button>
                     </div>
                 </div>
 
                 {/* Info Cards */}
-                <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="mt-6 grid grid-cols-2 gap-2 sm:gap-3 xl:grid-cols-3">
                     {data.map((item, index) => {
                         if (!item.label) return null;
 
@@ -40,14 +40,15 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                         return (
                             <div
                                 key={index}
-                                className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4 transition hover:border-blue-500 hover:bg-blue-50"
+                                className=" flex items-center gap-2  rounded-lg border border-gray-200  bg-gray-50   p-2.5 sm:p-4   transition  hover:border-blue-500  hover:bg-blue-50  "
                             >
                                 <Icon
-                                    size={18}
-                                    className="text-blue-600 shrink-0"
+                                    className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 shrink-0"
                                 />
 
-                                <span className="text-sm font-medium text-gray-700">
+                                <span
+                                    className=" text-[11px] sm:text-sm font-medium text-gray-700 leading-4 sm:leading-5 wrap-break-word "
+                                >
                                     {item.label}
                                 </span>
                             </div>
@@ -81,15 +82,15 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
 
                 {/* Skills */}
 
-                <div className="mt-10">
-                    <h2 className="text-2xl font-bold text-slate-900">
-                        Skills & Areas of Expertise
-                    </h2>
+               <div className="mt-10">
+  <h2 className="text-2xl font-bold text-slate-900">
+    Skills & Areas of Expertise
+  </h2>
 
-                    <li className="mt-5 flex flex-wrap gap-3">
-                        {skills}
-                    </li>
-                </div>
+  <ul className="mt-5 flex flex-wrap gap-3">
+    {skills}
+  </ul>
+</div>
 
                 {/* Company */}
 

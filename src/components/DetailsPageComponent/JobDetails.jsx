@@ -49,9 +49,12 @@ const JobDetailsCard = async ({ job }) => {
     ));
 
     const skills = job?.skillsAndExpertise?.map((item, index) => (
-        <ul key={index} className="gap-2 text-md text-gray-700  bg-gray-100 rounded-full px-3 py-1 ">
+        <li
+            key={index}
+            className=" list-none rounded-full border border-blue-100  bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 transition-all  hover:bg-blue-100 sm:px-4 sm:py-2 sm:text-sm "
+        >
             {item}
-        </ul>
+        </li>
     ));
 
     const relatedJobs = await getRelatedJobs(
@@ -60,22 +63,37 @@ const JobDetailsCard = async ({ job }) => {
     );
 
     return (
-        <div className="mx-auto my-8 max-w-7xl px-4 sm:px-6 lg:my-12 lg:px-8">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <>
+            <div className="mx-auto my-8 max-w-7xl px-4 sm:px-6 lg:my-12 lg:px-8">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 
-                {/* Left Side */}
-                <LeftSideContainer
-                    job={job}
-                    data={data}
-                    requirements={requirements}
-                    skills={skills} />
+                    <LeftSideContainer
+                        job={job}
+                        data={data}
+                        requirements={requirements}
+                        skills={skills}
+                    />
 
-                {/* Right Side */}
-                <RightSideContainer
-                    relatedJobs={relatedJobs} />
+                    <div className="sticky top-24 space-y-6">
+                        <div className="hidden lg:block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                            Apply Button
+                        </div>
 
+                        <div className="hidden md:block">
+                            <RightSideContainer relatedJobs={relatedJobs} />
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
+
+            {/* Mobile Apply Button */}
+            <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white p-3 lg:hidden">
+                <button className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white">
+                    Apply Now
+                </button>
+            </div>
+        </>
     );
 };
 

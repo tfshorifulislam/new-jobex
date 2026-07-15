@@ -1,5 +1,5 @@
-import BannerSection from '@/components/BannerSection';
-import BuildCareer from '@/components/BuildCareer';
+import BannerSection from '@/components/shared/BannerSection';
+import BuildCareer from '@/components/shared/BuildCareer';
 import React from 'react';
 
 const HomePage = () => {
