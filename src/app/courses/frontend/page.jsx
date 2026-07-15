@@ -45,7 +45,6 @@ const courses = [
     level: "Intermediate",
     icon: Atom,
     docs: "https://react.dev",
-    // React-এর official interactive course
     learn: "https://scrimba.com/learn-react-c0e",
   },
   {
