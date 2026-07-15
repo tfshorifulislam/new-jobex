@@ -8,13 +8,7 @@ export const getJobs = async (
     postedWithin = ""
 ) => {
     const url = `${baseUrl}/api/jobs?search=${search}&location=${location}&workplaceType=${workplaceType}&jobType=${jobType}&postedWithin=${postedWithin}`;
-
-    console.log(url); // <-- এটা দেখাও
-
     const res = await fetch(url);
     const data = await res.json();
-
-    console.log(data); // <-- এটাও দেখাও
-
     return data;
 };

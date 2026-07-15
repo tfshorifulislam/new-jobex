@@ -20,13 +20,29 @@ const JobsFilterWrapper = ({ filters, setFilters, setAllJobs }) => {
 
             </div>
 
-            <SearchJobs filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs}/>
+            <SearchJobs
+                filters={filters}
+                setFilters={setFilters}
+                setAllJobs={setAllJobs}
+            />
 
-            <WorkplaceType filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs} />
+            <WorkplaceType
+                filters={filters}
+                setFilters={setFilters}
+                setAllJobs={setAllJobs}
+            />
 
-            <JobType filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs} />
+            <JobType
+                filters={filters}
+                setFilters={setFilters}
+                setAllJobs={setAllJobs}
+            />
 
-            <JobPostTime filters={filters} setFilters={setFilters} setAllJobs= {setAllJobs} />
+            <JobPostTime
+                filters={filters}
+                setFilters={setFilters}
+                setAllJobs={setAllJobs}
+            />
         </div>
     );
 };

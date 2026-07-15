@@ -3,14 +3,15 @@
 import { Building2 } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { getJobs } from "@/lib/jobs";
 
 const workplaceTypes = [
-  { label: "Onsite", value: "onsite" },
-  { label: "Hybrid", value: "hybrid" },
-  { label: "Remote", value: "remote" },
+  { label: "Onsite", value: "On-Site" },
+  { label: "Hybrid", value: "Hybrid" },
+  { label: "Remote", value: "Remote" },
 ];
 
-const WorkplaceType = ({ filters, setFilters }) => {
+const WorkplaceType = ({ filters, setFilters, setAllJobs }) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
@@ -22,23 +23,36 @@ const WorkplaceType = ({ filters, setFilters }) => {
 
       <RadioGroup
         value={filters.workplaceType}
-        onValueChange={(value) =>
-          setFilters((prev) => ({
-            ...prev,
+        onValueChange={async (value) => {
+
+          const newFilters = {
+            ...filters,
             workplaceType: value,
-          }))
-        }
+          };
+
+          setFilters(newFilters);
+
+          const data = await getJobs(
+            newFilters.search,
+            newFilters.location,
+            newFilters.workplaceType,
+            newFilters.jobType,
+            newFilters.postedWithin
+          );
+
+          setAllJobs(data);
+        }}
+
         className="space-y-2"
       >
         {workplaceTypes.map((type) => (
           <Label
             key={type.value}
             htmlFor={type.value}
-            className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
-              filters.workplaceType === type.value
-                ? "border-blue-600 bg-blue-50"
-                : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
-            }`}
+            className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${filters.workplaceType === type.value
+              ? "border-blue-600 bg-blue-50"
+              : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
+              }`}
           >
             <span className="text-sm font-medium text-gray-700">
               {type.label}

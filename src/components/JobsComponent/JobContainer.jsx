@@ -15,7 +15,6 @@ const JobContainer = ({ jobs }) => {
         postedWithin: "",
     })
 
-
     return (
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
             <JobsFilterWrapper
