@@ -8,8 +8,6 @@ const JobsPage = async () => {
     return (
         <div className="min-h-screen bg-gray-50 p-4 md:p-8 font-sans">
             
-
-            {/* Main Layout Grid */}
             <JobContainer jobs={jobs} />
         </div>
 

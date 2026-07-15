@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import JobsFilterWrapper from './JobsFilterWraper';
 import JobCard from './JobCard';
+import FilterContent from './FilterContent';
 
 const JobContainer = ({ jobs }) => {
 
@@ -12,7 +13,7 @@ const JobContainer = ({ jobs }) => {
         location: "",
         workplaceType: "",
         employmentType: "",
-        postedWithin: "",
+        postedWithin: "All",
     })
 
     return (
@@ -25,10 +26,20 @@ const JobContainer = ({ jobs }) => {
                 </p>
             </div>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
-                <JobsFilterWrapper
-                    filters={filters}
-                    setFilters={setFilters}
-                    setAllJobs={setAllJobs} />
+
+                <div className='block md:hidden'>
+                    <FilterContent
+                        filters={filters}
+                        setFilters={setFilters}
+                        setAllJobs={setAllJobs} />
+                </div>
+
+                <div className='hidden md:block'>
+                    <JobsFilterWrapper
+                        filters={filters}
+                        setFilters={setFilters}
+                        setAllJobs={setAllJobs} />
+                </div>
 
                 <div className="lg:col-span-3">
                     <JobCard jobs={allJobs} />
