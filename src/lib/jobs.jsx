@@ -30,3 +30,9 @@ export const getRelatedJobs = async (category, id) => {
 
     return await res.json();
 };
+
+// get all remote jobs
+export const getRemoteJobs = async () => {
+    const res = await fetch(`${baseUrl}/api/jobs?workplaceType=Remote`);
+    return res.json();
+}

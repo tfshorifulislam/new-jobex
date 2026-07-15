@@ -7,7 +7,7 @@ const JobsPage = async () => {
     return (
         <div className="min-h-screen bg-gray-50 p-4 md:p-8 font-sans">
             
-            <JobContainer jobs={jobs} />
+            <JobContainer jobs={jobs}  title="Latest Jobs in BD" />
         </div>
 
     );
