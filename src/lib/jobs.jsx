@@ -36,3 +36,8 @@ export const getRemoteJobs = async () => {
     const res = await fetch(`${baseUrl}/api/jobs?workplaceType=Remote`);
     return res.json();
 }
+// get all remote jobs
+export const getInternShipJobs = async () => {
+    const res = await fetch(`${baseUrl}/api/jobs?workplaceType=Internship`);
+    return res.json();
+}

@@ -1,4 +1,3 @@
-import JobCard from "@/components/JobsComponent/JobCard";
 import JobContainer from "@/components/JobsComponent/JobContainer";
 import { getRemoteJobs } from "@/lib/jobs";
 
