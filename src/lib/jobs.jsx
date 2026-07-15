@@ -21,3 +21,12 @@ export const getJobsById = async (id) => {
     const result = await res.json()
     return result;
 }
+
+// get related jobs
+export const getRelatedJobs = async (category, id) => {
+    const res = await fetch(
+        `${baseUrl}/api/related-jobs?category=${category}&excludeId=${id}`
+    );
+
+    return await res.json();
+};

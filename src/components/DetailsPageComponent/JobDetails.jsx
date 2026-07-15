@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
+import { getJobsById, getRelatedJobs } from "@/lib/jobs";
+import Link from "next/link";
 
 const JobDetailsCard = async ({ job }) => {
 
@@ -56,6 +58,11 @@ const JobDetailsCard = async ({ job }) => {
             {item}
         </ul>
     ));
+
+    const relatedJobs = await getRelatedJobs(
+        job.category,
+        job._id
+    );
 
     return (
         <div className="mx-auto my-8 max-w-7xl px-4 sm:px-6 lg:my-12 lg:px-8">
@@ -191,10 +198,48 @@ const JobDetailsCard = async ({ job }) => {
                             Apply Button
                         </div>
 
-                        {/* Related Jobs */}
-                        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                            {/* Related Jobs */}
-                        </div>
+                       {/* Related Jobs */}
+<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+    <h2 className="mb-5 text-xl font-bold text-gray-900">
+        Related Jobs
+    </h2>
+
+    <div className="space-y-4">
+        {relatedJobs.length > 0 ? (
+            relatedJobs.map((job) => (
+                <Link
+                    key={job._id}
+                    href={`/jobs/${job._id}`}
+                    className="block rounded-xl border border-gray-200 p-4 transition hover:border-blue-600 hover:bg-blue-50"
+                >
+                    <h3 className="font-semibold text-gray-900 hover:text-blue-600">
+                        {job.jobTitle}
+                    </h3>
+
+                    <p className="mt-1 text-sm text-gray-500">
+                        {job.companyName}
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-3 text-xs text-gray-500">
+                        <span>{job.location}</span>
+                        <span>•</span>
+                        <span>{job.workplaceType}</span>
+                        <span>•</span>
+                        <span>{job.employmentType}</span>
+                    </div>
+
+                    <p className="mt-3 text-sm font-semibold text-blue-600">
+                        ৳ {job.salary}
+                    </p>
+                </Link>
+            ))
+        ) : (
+            <p className="text-sm text-gray-500">
+                No related jobs found.
+            </p>
+        )}
+    </div>
+</div>
 
                     </div>
                 </aside>
