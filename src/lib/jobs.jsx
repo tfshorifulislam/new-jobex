@@ -12,3 +12,12 @@ export const getJobs = async (
     const data = await res.json();
     return data;
 };
+
+
+// job find by id
+
+export const getJobsById = async (id) => {
+    const res = await fetch(`${baseUrl}/api/jobs/${id}`);
+    const result = await res.json()
+    return result;
+}
