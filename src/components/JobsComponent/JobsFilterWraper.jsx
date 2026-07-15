@@ -9,7 +9,7 @@ import JobPostTime from "./JobPostTime";
 const JobsFilterWrapper = ({ filters, setFilters, setAllJobs }) => {
 
     return (
-        <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6">
+        <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 space-y-6 h-fit">
 
             {/* Header */}
             <div className="flex items-center justify-between border-b pb-4">
