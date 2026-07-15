@@ -16,14 +16,21 @@ const JobContainer = ({ jobs }) => {
     })
 
     return (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
-            <JobsFilterWrapper
-                filters={filters}
-                setFilters={setFilters}
-                setAllJobs={setAllJobs} />
+        <div>
+            {/* Top Header */}
+            <div className="max-w-7xl mx-auto mb-6">
+                <h1 className="text-2xl font-bold text-gray-800">Latest Jobs in BD</h1>
+                <p>{allJobs.length}</p>
+            </div>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <JobsFilterWrapper
+                    filters={filters}
+                    setFilters={setFilters}
+                    setAllJobs={setAllJobs} />
 
-            <div className="lg:col-span-3">
-                <JobCard jobs={allJobs} />
+                <div className="lg:col-span-3">
+                    <JobCard jobs={allJobs} />
+                </div>
             </div>
         </div>
     );

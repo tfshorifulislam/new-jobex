@@ -1,8 +1,8 @@
-"use client";
 
 import { CalendarClock } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { getJobs } from "@/lib/jobs";
 
 const postedTimes = [
   "All",
@@ -11,7 +11,7 @@ const postedTimes = [
   "This Year",
 ];
 
-const JobPostTime = ({ filters, setFilters }) => {
+const JobPostTime = ({ filters, setFilters, setAllJobs }) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
@@ -23,12 +23,25 @@ const JobPostTime = ({ filters, setFilters }) => {
 
       <RadioGroup
         value={filters.postedWithin}
-        onValueChange={(value) =>
-          setFilters((prev) => ({
-            ...prev,
+        onValueChange={async (value) => {
+
+          const newFilters = {
+            ...filters,
             postedWithin: value,
-          }))
-        }
+          };
+
+          setFilters(newFilters);
+
+          const data = await getJobs(
+            newFilters.search,
+            newFilters.location,
+            newFilters.workplaceType,
+            newFilters.employmentType,
+            newFilters.postedWithin
+          );
+
+          setAllJobs(data);
+        }}
         className="space-y-2"
       >
         {postedTimes.map((time) => {
@@ -38,10 +51,11 @@ const JobPostTime = ({ filters, setFilters }) => {
             <Label
               key={time}
               htmlFor={id}
-              className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${filters.postedWithin  === time
+              className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${
+                filters.postedWithin === time
                   ? "border-blue-600 bg-blue-50"
                   : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
-                }`}
+              }`}
             >
               <span className="text-sm font-medium text-gray-700">
                 {time}
