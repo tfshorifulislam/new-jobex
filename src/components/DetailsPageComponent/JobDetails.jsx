@@ -77,7 +77,10 @@ const JobDetailsCard = async ({ job }) => {
 
                     <div className="sticky top-24 space-y-6">
                         <div className="hidden lg:block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                            <ApplyBtnModal />
+
+                            <ApplyBtnModal
+                                job={job}
+                            />
                         </div>
 
                         <div className="hidden md:block">
@@ -90,7 +93,9 @@ const JobDetailsCard = async ({ job }) => {
 
             {/* Mobile Apply Button */}
             <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white p-3 lg:hidden">
-                <ApplyBtnModal />
+                <ApplyBtnModal
+                    job={job}
+                />
             </div>
         </>
     );

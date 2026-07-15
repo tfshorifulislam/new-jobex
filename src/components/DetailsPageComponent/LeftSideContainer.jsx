@@ -82,15 +82,15 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
 
                 {/* Skills */}
 
-               <div className="mt-10">
-  <h2 className="text-2xl font-bold text-slate-900">
-    Skills & Areas of Expertise
-  </h2>
+                <div className="mt-10">
+                    <h2 className="text-2xl font-bold text-slate-900">
+                        Skills & Areas of Expertise
+                    </h2>
 
-  <ul className="mt-5 flex flex-wrap gap-3">
-    {skills}
-  </ul>
-</div>
+                    <ul className="mt-5 flex flex-wrap gap-3">
+                        {skills}
+                    </ul>
+                </div>
 
                 {/* Company */}
 
