@@ -4,10 +4,10 @@ export const getJobs = async (
     search = "",
     location = "",
     workplaceType = "",
-    jobType = "",
+    employmentType = "",
     postedWithin = ""
 ) => {
-    const url = `${baseUrl}/api/jobs?search=${search}&location=${location}&workplaceType=${workplaceType}&jobType=${jobType}&postedWithin=${postedWithin}`;
+    const url = `${baseUrl}/api/jobs?search=${search}&location=${location}&workplaceType=${workplaceType}&employmentType=${employmentType}&postedWithin=${postedWithin}`;
     const res = await fetch(url);
     const data = await res.json();
     return data;

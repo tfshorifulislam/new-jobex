@@ -11,7 +11,7 @@ const JobContainer = ({ jobs }) => {
         search: "",
         location: "",
         workplaceType: "",
-        jobType: "",
+        employmentType: "",
         postedWithin: "",
     })
 
