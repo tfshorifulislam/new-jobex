@@ -11,11 +11,11 @@ const CoursesPageHeading = () => {
                         Learning Hub
                     </span>
 
-                    <h1 className="mt-6 text-4xl font-bold text-gray-900 md:text-5xl">
+                    <h1 className="mt-6 text-2xl font-bold text-gray-900 md:text-5xl">
                         Courses
                     </h1>
 
-                    <p className="mt-5 text-lg leading-8 text-gray-600">
+                    <p className="mt-5 text-sm md:text-lg leading-6 md:leading-8 text-gray-600">
                         Learn in-demand technologies with official documentation,
                         hand-picked free resources, and structured learning paths.
                     </p>
