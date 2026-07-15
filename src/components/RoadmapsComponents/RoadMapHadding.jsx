@@ -11,11 +11,11 @@ const RoadMapHadding = () => {
                         Developer Roadmaps
                     </span>
 
-                    <h1 className="mt-6 text-4xl font-bold text-gray-900 md:text-5xl">
+                    <h1 className="mt-5 text-4xl font-bold text-gray-900">
                         Roadmaps
                     </h1>
 
-                    <p className="mt-5 text-lg leading-8 text-gray-600">
+                    <p className="mt-4 max-w-3xl text-gray-600 leading-7">
                         Follow structured learning paths to become job-ready. Choose your
                         career path and learn step by step with interactive roadmaps.
                     </p>

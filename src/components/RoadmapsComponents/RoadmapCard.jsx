@@ -8,7 +8,6 @@ const RoadmapCard = ({ roadmaps }) => {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {roadmaps.map((roadmap) => {
                     const Icon = roadmap.icon;
-
                     return (
                         <Link
                             key={roadmap.title}
