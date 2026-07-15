@@ -2,7 +2,6 @@ import { getJobs } from '@/lib/jobs';
 import JobContainer from '@/components/JobsComponent/JobContainer';
 
 const JobsPage = async () => {
-
     const jobs = await getJobs();
 
     return (

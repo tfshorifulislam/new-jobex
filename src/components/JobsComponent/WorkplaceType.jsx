@@ -1,4 +1,3 @@
-"use client";
 
 import { Building2 } from "lucide-react";
 import { Label } from "@/components/ui/label";

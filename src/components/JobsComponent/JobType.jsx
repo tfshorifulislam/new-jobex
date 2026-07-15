@@ -1,4 +1,3 @@
-"use client";
 
 import { BriefcaseBusiness } from "lucide-react";
 import { Label } from "@/components/ui/label";

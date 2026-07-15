@@ -1,12 +1,12 @@
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 const JobCard = ({ jobs }) => {
-
     return (
         <div className="space-y-4">
             {jobs.map((job) => (
-                <div key={job._id} className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-blue-600 transition-shadow relative overflow-hidden">
+                <Link href={`/jobs/${job._id}`} key={job._id} className="bg-white p-5 block rounded-xl shadow-sm border border-gray-100 hover:border-blue-600 transition-shadow relative overflow-hidden">
 
                     <div className="flex justify-between items-start mb-2">
                         <div>
@@ -39,7 +39,8 @@ const JobCard = ({ jobs }) => {
                             </span>
                         ))}
                     </div>
-                </div>
+
+                </Link>
             ))}
         </div>
     );
