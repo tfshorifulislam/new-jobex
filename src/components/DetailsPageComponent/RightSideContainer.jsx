@@ -17,9 +17,9 @@ const RightSideContainer = ({ relatedJobs }) => {
                             <Link
                                 key={job._id}
                                 href={`/jobs/${job._id}`}
-                                className="block rounded-xl border border-gray-200 p-4 transition hover:border-blue-600 hover:bg-blue-50"
+                                className="block rounded-xl border border-gray-200 p-4 transition hover:border-[#6633ff] hover:bg-blue-50"
                             >
-                                <h3 className="font-semibold text-gray-900 hover:text-blue-600">
+                                <h3 className="font-semibold text-gray-900 hover:text-[#6633ff]">
                                     {job.jobTitle}
                                 </h3>
 
@@ -35,7 +35,7 @@ const RightSideContainer = ({ relatedJobs }) => {
                                     <span>{job.employmentType}</span>
                                 </div>
 
-                                <p className="mt-3 text-sm font-semibold text-blue-600">
+                                <p className="mt-3 text-sm font-semibold text-[#6633ff]">
                                     ৳ {job.salary}
                                 </p>
                             </Link>

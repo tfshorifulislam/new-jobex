@@ -86,7 +86,7 @@ const Verify = () => {
                 <button
                     onClick={handleVerify}
                     disabled={otp.length !== 6}
-                    className="mt-6 w-full h-12 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+                    className="mt-6 w-full h-12 rounded-xl bg-[#6633ff] text-white font-semibold hover:bg-[#6633ffde] transition disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                     Verify OTP
                 </button>

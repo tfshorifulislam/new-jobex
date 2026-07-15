@@ -15,7 +15,7 @@ const JobType = ({ filters, setFilters, setAllJobs }) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <BriefcaseBusiness className="h-5 w-5 text-blue-600" />
+        <BriefcaseBusiness className="h-5 w-5 text-[#6633ff]" />
         <h3 className="text-sm font-semibold text-gray-900">
           Job Type
         </h3>
@@ -52,7 +52,7 @@ const JobType = ({ filters, setFilters, setAllJobs }) => {
             key={type.value}
             htmlFor={type.value}
             className={`flex cursor-pointer items-center justify-between rounded-xl border p-3 transition-all ${filters.employmentType === type.value
-                ? "border-blue-600 bg-blue-50"
+                ? "border-[#6633ff] bg-blue-50"
                 : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
               }`}
           >

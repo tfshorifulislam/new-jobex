@@ -6,11 +6,11 @@ const JobCard = ({ jobs }) => {
     return (
         <div className="space-y-4">
             {jobs.map((job) => (
-                <Link href={`/jobs/${job._id}`} key={job._id} className="bg-white p-5 block rounded-xl shadow-sm border border-gray-100 hover:border-blue-600 transition-shadow relative overflow-hidden">
+                <Link href={`/jobs/${job._id}`} key={job._id} className="bg-white p-5 block rounded-xl shadow-sm border border-gray-100 hover:border-[#6633ff] transition-shadow relative overflow-hidden">
 
                     <div className="flex justify-between items-start mb-2">
                         <div>
-                            <h2 className="text-lg font-bold text-gray-800 hover:text-blue-600 cursor-pointer">{job.jobTitle}</h2>
+                            <h2 className="text-lg font-bold text-gray-800 hover:text-[#6633ff] cursor-pointer">{job.jobTitle}</h2>
                             <p className="text-sm font-medium text-gray-600">{job.companyName}</p>
                         </div>
                     </div>

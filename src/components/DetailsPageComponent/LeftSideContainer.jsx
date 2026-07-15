@@ -14,7 +14,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                             {job.jobTitle}
                         </h1>
 
-                        <p className="mt-2 text-sm sm:text-base font-medium text-blue-600">
+                        <p className="mt-2 text-sm sm:text-base font-medium text-[#6633ff]">
                             {job.companyName}
                         </p>
                     </div>
@@ -43,7 +43,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                                 className=" flex items-center gap-2  rounded-lg border border-gray-200  bg-gray-50   p-2.5 sm:p-4   transition  hover:border-blue-500  hover:bg-blue-50  "
                             >
                                 <Icon
-                                    className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 shrink-0"
+                                    className="h-4 w-4 sm:h-5 sm:w-5 text-[#6633ff] shrink-0"
                                 />
 
                                 <span

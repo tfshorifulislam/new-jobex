@@ -12,6 +12,7 @@ import { formatDistanceToNow } from "date-fns";
 import { getRelatedJobs } from "@/lib/jobs";
 import LeftSideContainer from "./LeftSideContainer";
 import RightSideContainer from "./RightSideContainer";
+import { ApplyBtnModal } from "./ApplyBtnModal";
 
 const JobDetailsCard = async ({ job }) => {
 
@@ -75,8 +76,8 @@ const JobDetailsCard = async ({ job }) => {
                     />
 
                     <div className="sticky top-24 space-y-6">
-                        <div className="hidden lg:block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                            Apply Button
+                        <div className="hidden lg:block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+                            <ApplyBtnModal />
                         </div>
 
                         <div className="hidden md:block">
@@ -89,9 +90,7 @@ const JobDetailsCard = async ({ job }) => {
 
             {/* Mobile Apply Button */}
             <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white p-3 lg:hidden">
-                <button className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white">
-                    Apply Now
-                </button>
+                <ApplyBtnModal />
             </div>
         </>
     );

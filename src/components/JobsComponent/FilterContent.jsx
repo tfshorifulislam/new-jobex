@@ -9,8 +9,8 @@ const FilterContent = ({ filters, setFilters, setAllJobs }) => {
         <Drawer swipeDirection="left">
             <DrawerTrigger
                 render={
-                    <Button className="w-full">
-                        <SlidersHorizontal className="mr-2 h-4 w-4" />
+                    <Button className="w-full bg-[#6633ff] hover:bg-[#6633ffbe]">
+                        <SlidersHorizontal className="mr-2 h-4 w-4 " />
                         Filters
                     </Button>
                 }

@@ -33,7 +33,7 @@ const SearchJobs = ({ filters, setFilters, setAllJobs }) => {
           value={filters.search}
           onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
           placeholder="Job title, keyword..."
-          className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600"
+          className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-[#6633ff]"
         />
       </div>
 
@@ -48,14 +48,14 @@ const SearchJobs = ({ filters, setFilters, setAllJobs }) => {
           value={filters.location}
           onChange={(e) => setFilters(prev => ({ ...prev, location: e.target.value }))}
           placeholder="Location"
-          className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-600"
+          className="w-full rounded-xl border border-gray-200 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-[#6633ff]"
         />
       </div>
 
       <Button
         type="submit"
         onClick={handleSearch}
-        className="w-full rounded-xl bg-blue-600 hover:bg-blue-700"
+        className="w-full rounded-xl bg-[#6633ff] hover:bg-[#6633fff1]"
       >
         Search Jobs
       </Button>
