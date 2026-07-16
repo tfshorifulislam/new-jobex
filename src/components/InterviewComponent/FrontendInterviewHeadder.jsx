@@ -1,7 +1,7 @@
 import { Code2 } from 'lucide-react';
 import React from 'react';
 
-const FrontendInterviewHeadder = ({ questions }) => {
+const FrontendInterviewHeadder = ({ questions, title = 'Frontend' }) => {
     return (
         <section className="border-b bg-white">
             <div className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
@@ -13,7 +13,7 @@ const FrontendInterviewHeadder = ({ questions }) => {
 
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl lg:text-4xl">
-                            Frontend Interview Questions
+                            {title} Interview Questions
                         </h1>
 
                         <p className="mt-2 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">

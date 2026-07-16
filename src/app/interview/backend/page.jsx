@@ -1,3 +1,4 @@
+import FrontendInterviewHeadder from '@/components/InterviewComponent/FrontendInterviewHeadder';
 import InterviewQuestion from '@/components/InterviewComponent/InterviewQuestion';
 
 const BackendInterviewPage = () => {
@@ -837,11 +838,17 @@ const BackendInterviewPage = () => {
 
     return (
         <div>
+
+            <FrontendInterviewHeadder
+                title="Backend"
+                questions={questions} />
+
+
             {/* Questions */}
             <InterviewQuestion
                 questions={questions}
                 badgeColor={badgeColor}
-                  title="Backend"
+                title="Backend"
             />
         </div>
     );

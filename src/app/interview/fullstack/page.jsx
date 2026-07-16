@@ -1,3 +1,4 @@
+import FrontendInterviewHeadder from '@/components/InterviewComponent/FrontendInterviewHeadder';
 import InterviewQuestion from '@/components/InterviewComponent/InterviewQuestion';
 import React from 'react';
 
@@ -872,6 +873,11 @@ const FullStackInterviewPage = () => {
 
     return (
         <div>
+
+            <FrontendInterviewHeadder
+                title="Full Stack"
+                questions={questions} />
+
             {/* Questions */}
             <InterviewQuestion
                 questions={questions}
