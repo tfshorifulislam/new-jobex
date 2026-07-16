@@ -11,13 +11,13 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 
-const InterviewQuestion = ({ questions, badgeColor }) => {
+const InterviewQuestion = ({ questions, badgeColor, title = 'Frontend' }) => {
   return (
     <section className="mx-auto max-w-5xl px-4 py-12">
       {/* Section Heading */}
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-gray-900">
-          Interview Questions
+          {title} Interview Questions
         </h2>
 
         <p className="mt-2 text-gray-500">

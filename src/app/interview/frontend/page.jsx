@@ -724,12 +724,13 @@ const FrontendInterview = () => {
     return (
         <main className="min-h-screen bg-gray-50">
             {/* Hero */}
-            <FrontendInterviewHeadder questions ={questions} />
+            <FrontendInterviewHeadder questions={questions} />
 
             {/* Questions */}
             <InterviewQuestion
                 questions={questions}
                 badgeColor={badgeColor}
+                title="Frontend"
             />
         </main>
     );

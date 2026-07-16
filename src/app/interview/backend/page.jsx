@@ -841,6 +841,7 @@ const BackendInterviewPage = () => {
             <InterviewQuestion
                 questions={questions}
                 badgeColor={badgeColor}
+                  title="Backend"
             />
         </div>
     );
