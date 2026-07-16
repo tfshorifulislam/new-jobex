@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 
-const FrontendInterviewQuestion = ({ questions, badgeColor }) => {
+const InterviewQuestion = ({ questions, badgeColor }) => {
   return (
     <section className="mx-auto max-w-5xl px-4 py-12">
       {/* Section Heading */}
@@ -26,7 +26,7 @@ const FrontendInterviewQuestion = ({ questions, badgeColor }) => {
       </div>
 
       {/* Questions */}
-      <Accordion type="single" collapsible className="space-y-5">
+      <Accordion type="single" className="space-y-5">
         {questions.map((item, index) => (
           <AccordionItem
             key={index}
@@ -117,4 +117,4 @@ const FrontendInterviewQuestion = ({ questions, badgeColor }) => {
   );
 };
 
-export default FrontendInterviewQuestion;
+export default InterviewQuestion;

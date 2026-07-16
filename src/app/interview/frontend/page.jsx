@@ -1,12 +1,5 @@
 import FrontendInterviewHeadder from "@/components/InterviewComponent/FrontendInterviewHeadder";
-import FrontendInterviewQuestion from "@/components/InterviewComponent/FrontendInterviewQuestion";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion";
-import { BadgeCheck, BookOpen, Code2 } from "lucide-react";
+import InterviewQuestion from "@/components/InterviewComponent/InterviewQuestion";
 
 const FrontendInterview = () => {
     const questions = [
@@ -734,7 +727,7 @@ const FrontendInterview = () => {
             <FrontendInterviewHeadder questions ={questions} />
 
             {/* Questions */}
-            <FrontendInterviewQuestion
+            <InterviewQuestion
                 questions={questions}
                 badgeColor={badgeColor}
             />
