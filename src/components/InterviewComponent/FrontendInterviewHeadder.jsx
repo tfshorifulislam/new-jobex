@@ -1,6 +1,4 @@
 import { Code2 } from 'lucide-react';
-import React from 'react';
-
 const FrontendInterviewHeadder = ({ questions, title = 'Frontend' }) => {
     return (
         <section className="border-b bg-white">
