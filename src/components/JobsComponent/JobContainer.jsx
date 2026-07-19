@@ -5,7 +5,7 @@ import JobsFilterWrapper from './JobsFilterWraper';
 import JobCard from './JobCard';
 import FilterContent from './FilterContent';
 
-const JobContainer = ({ jobs,  title = "Latest Jobs in BD" }) => {
+const JobContainer = ({ jobs, title = "Latest Jobs" }) => {
 
     const [allJobs, setAllJobs] = useState(jobs);
     const [filters, setFilters] = useState({
@@ -20,13 +20,14 @@ const JobContainer = ({ jobs,  title = "Latest Jobs in BD" }) => {
         <div>
             {/* Top Header */}
             <div className="max-w-7xl mx-auto mb-6">
-                <h1 className="text-2xl font-bold text-gray-800">Latest {title}</h1>
+                <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
                 <p className="mt-1 text-sm text-gray-500">
                     Total Jobs {allJobs.length}
                 </p>
             </div>
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
 
+                {/* this is for mobile preview */}
                 <div className='block md:hidden'>
                     <FilterContent
                         filters={filters}
@@ -34,6 +35,7 @@ const JobContainer = ({ jobs,  title = "Latest Jobs in BD" }) => {
                         setAllJobs={setAllJobs} />
                 </div>
 
+                {/* this is for pc */}
                 <div className='hidden md:block'>
                     <JobsFilterWrapper
                         filters={filters}

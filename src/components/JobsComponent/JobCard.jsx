@@ -23,13 +23,13 @@ const JobCard = ({ jobs }) => {
                             <div className="flex items-center gap-1">
                                 <MapPin size={14} /> <span>{job.workplaceType} • {job.location}</span>
                             </div>
-                            <div className="font-semibold text-gray-700">
-                                ৳ {job.salary}
-                            </div>
                         </div>
-                        <div className="flex gap-1 text-red-500 font-medium">
+                        <div className="font-semibold text-red-500">
+                            {job.salary}
+                        </div>
+                        {/* <div className="flex gap-1 text-red-500 font-medium">
                             <Calendar size={14} /> <span>Deadline: {job.deadline}</span>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="flex flex-wrap gap-1.5">

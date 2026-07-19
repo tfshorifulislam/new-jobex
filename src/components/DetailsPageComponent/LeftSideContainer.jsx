@@ -65,7 +65,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                 </h2>
 
                 <p className="mt-4 leading-8 text-gray-600 whitespace-pre-line">
-                    {job.jobDescription}
+                    {job.jobDescription || 'No Description'}
                 </p>
 
                 {/* Requirements */}
@@ -76,7 +76,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                     </h2>
 
                     <ul className="mt-5 space-y-3 text-sm text-gray-600">
-                        {requirements}
+                        {requirements || 'No Requirements'}
                     </ul>
                 </div>
 
@@ -88,7 +88,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                     </h2>
 
                     <ul className="mt-5 flex flex-wrap gap-3">
-                        {skills}
+                        {skills }
                     </ul>
                 </div>
 
