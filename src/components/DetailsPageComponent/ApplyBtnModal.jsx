@@ -16,7 +16,7 @@ import { Building2, ExternalLink, ShieldCheck } from "lucide-react";
 import ApplyForm from "./ApplyForm";
 
 export function ApplyBtnModal({ job }) {
-  const isExternal = job.source === "remotive";
+  const isExternal = job.source === "remotive" || "arbeitnow";
 
   // ==========================
   // External Job
