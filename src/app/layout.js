@@ -116,7 +116,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <ToastContainer
-          position="top-right"
+          position="bottom-center"
           autoClose={3000}
           theme="light"
         />

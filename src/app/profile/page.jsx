@@ -90,7 +90,7 @@ const ProfilePage = async () => {
             </section>
 
             {/* Career Journey */}
-            <section className="mt-10 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+            <section className="mt-10 rounded-3xl border border-gray-100 bg-white p-8">
                 <div className="text-center">
                     <h2 className="text-3xl font-bold text-gray-900">
                         Get Ready to Land Your New Jobex
@@ -109,7 +109,7 @@ const ProfilePage = async () => {
                         return (
                             <div
                                 key={index}
-                                className="rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-violet-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#6633ff] hover:shadow-lg"
+                                className="rounded-2xl border border-gray-200 bg-linear-to-br from-white to-violet-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#6633ff] hover:shadow-lg"
                             >
                                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#6633ff]/10">
                                     <Icon className="h-7 w-7 text-[#6633ff]" />
@@ -129,7 +129,7 @@ const ProfilePage = async () => {
             </section>
 
             {/* Tips */}
-            <section className="mt-10 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+            <section className="mt-10 rounded-3xl border border-gray-100 bg-white p-8 ">
                 <h2 className="text-2xl font-bold text-gray-900">
                     Career Tips
                 </h2>

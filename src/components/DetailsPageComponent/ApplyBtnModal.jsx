@@ -14,12 +14,13 @@ import {
   Building2,
   TriangleAlert,
 } from "lucide-react";
+import { toast } from "react-toastify";
 
 export function ApplyBtnModal({ job }) {
 
   const handleContinue = () => {
     if (!job?.applyLink) {
-      alert("Application link is not available.");
+      toast.error("Application link is not available.");
       return;
     }
 
