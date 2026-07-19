@@ -1,212 +1,185 @@
-import Image from "next/image";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import {
-    Briefcase,
-    MapPin,
-    Mail,
-    Eye,
-    Bookmark,
-    FileText,
-    Pencil,
+  BadgeCheck,
+  BriefcaseBusiness,
+  FileText,
+  Sparkles,
+  Target,
+  TrendingUp,
 } from "lucide-react";
 
 const ProfilePage = async () => {
-    const session = await auth.api.getSession({
-        headers: await headers(),
-    });
+  const userInfo = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-    const user = session?.user;
+  const user = userInfo?.user;
 
-    return (
-        <main className="min-h-screen bg-[radial-gradient(circle_at_top,#ede9fe_0%,white_65%)] py-14">
-            <div className="mx-auto max-w-6xl px-5">
+  const steps = [
+    {
+      icon: FileText,
+      title: "Create Your CV",
+      description:
+        "Build a professional resume that highlights your education, experience and achievements.",
+    },
+    {
+      icon: Sparkles,
+      title: "Showcase Your Skills",
+      description:
+        "Add your technical and professional skills to stand out from other candidates.",
+    },
+    {
+      icon: BadgeCheck,
+      title: "Build Trust",
+      description:
+        "A complete profile helps employers feel confident about your application.",
+    },
+    {
+      icon: Target,
+      title: "Get Discovered",
+      description:
+        "Recruiters can easily find your profile based on your skills and experience.",
+    },
+    {
+      icon: BriefcaseBusiness,
+      title: "Apply Faster",
+      description:
+        "A completed profile lets you apply for jobs in just a few clicks.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Grow Your Career",
+      description:
+        "Keep learning, update your profile regularly and unlock better opportunities.",
+    },
+  ];
 
-                {/* Header */}
-                <div className="rounded-3xl border border-violet-100 bg-white shadow-xl overflow-hidden">
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+      {/* Hero */}
+      <section className="overflow-hidden rounded-3xl bg-gradient-to-r from-[#0b1d4d] via-[#162d69] to-[#253b80] text-white">
+        <div className="grid items-center gap-10 p-8 md:grid-cols-2 lg:p-12">
+          <div>
+            <span className="rounded-full bg-white/10 px-4 py-1 text-sm">
+              Welcome Back 👋
+            </span>
 
-                    {/* Cover */}
-                    <div className="h-40 bg-gradient-to-r from-[#6633ff] via-violet-500 to-fuchsia-500" />
+            <h1 className="mt-6 text-3xl font-bold md:text-5xl">
+              Hi, {user?.name || "User"}
+            </h1>
 
-                    <div className="px-8 pb-8">
+            <p className="mt-5 max-w-lg text-white/80 leading-8">
+              Your profile is more than just information—it represents your
+              professional journey. Keep it updated and increase your chances
+              of getting noticed by recruiters.
+            </p>
+          </div>
 
-                        {/* Avatar */}
-                        <div className="-mt-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex justify-center">
+            <img
+              src="/banner1.png"
+              alt="Career"
+              className="max-h-72 w-full max-w-md object-contain rounded-2xl"
+            />
+          </div>
+        </div>
+      </section>
 
-                            <div className="flex items-end gap-5">
+      {/* Career Journey */}
+      <section className="mt-10 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Your Journey to Getting Hired
+          </h2>
 
-                                <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-lg bg-white">
-                                    <Image
-                                        src={user?.image || "/avatar.png"}
-                                        alt=""
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+          <p className="mx-auto mt-3 max-w-2xl text-gray-500">
+            Every successful career starts with a strong profile. Complete your
+            professional information and make yourself easier for recruiters to
+            discover.
+          </p>
+        </div>
 
-                                <div className="pb-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {steps.map((item, index) => {
+            const Icon = item.icon;
 
-                                    <h1 className="text-3xl font-bold">
-                                        {user?.name}
-                                    </h1>
-
-                                    <p className="mt-1 text-[#6633ff] font-semibold">
-                                        Frontend Developer
-                                    </p>
-
-                                    <div className="mt-3 flex flex-wrap gap-5 text-gray-600 text-sm">
-
-                                        <div className="flex items-center gap-2">
-                                            <Mail size={16} />
-                                            {user?.email}
-                                        </div>
-
-                                        <div className="flex items-center gap-2">
-                                            <MapPin size={16} />
-                                            Bangladesh
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <button className="inline-flex items-center gap-2 rounded-xl bg-[#6633ff] px-5 py-3 font-semibold text-white transition hover:bg-violet-700">
-                                <Pencil size={18} />
-                                Edit Profile
-                            </button>
-
-                        </div>
-                    </div>
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-violet-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#6633ff] hover:shadow-lg"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#6633ff]/10">
+                  <Icon className="h-7 w-7 text-[#6633ff]" />
                 </div>
 
-                {/* Stats */}
+                <h3 className="mt-6 text-xl font-semibold text-gray-900">
+                  {item.title}
+                </h3>
 
-                <div className="mt-8 grid gap-5 md:grid-cols-4">
+                <p className="mt-3 text-sm leading-7 text-gray-600">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
-                    {[
-                        {
-                            title: "Applied Jobs",
-                            value: "12",
-                            icon: FileText,
-                        },
-                        {
-                            title: "Saved Jobs",
-                            value: "8",
-                            icon: Bookmark,
-                        },
-                        {
-                            title: "Profile Views",
-                            value: "320",
-                            icon: Eye,
-                        },
-                        {
-                            title: "Experience",
-                            value: "2 Years",
-                            icon: Briefcase,
-                        },
-                    ].map((item) => (
-                        <div
-                            key={item.title}
-                            className="rounded-2xl border border-violet-100 bg-white p-6 shadow-sm"
-                        >
-                            <item.icon
-                                className="text-[#6633ff]"
-                                size={30}
-                            />
+      {/* Tips */}
+      <section className="mt-10 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+        <h2 className="text-2xl font-bold text-gray-900">
+          Career Tips
+        </h2>
 
-                            <h2 className="mt-5 text-3xl font-bold">
-                                {item.value}
-                            </h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="rounded-xl bg-violet-50 p-5">
+            <h4 className="font-semibold text-gray-900">
+              Keep Your Profile Updated
+            </h4>
 
-                            <p className="mt-1 text-gray-500">
-                                {item.title}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+            <p className="mt-2 text-sm leading-7 text-gray-600">
+              Regularly update your skills, education and work experience to
+              improve your visibility.
+            </p>
+          </div>
 
-                {/* About */}
+          <div className="rounded-xl bg-violet-50 p-5">
+            <h4 className="font-semibold text-gray-900">
+              Add Relevant Skills
+            </h4>
 
-                <div className="mt-8 grid gap-8 lg:grid-cols-3">
+            <p className="mt-2 text-sm leading-7 text-gray-600">
+              Employers often search by skills. Make sure your strongest skills
+              are listed.
+            </p>
+          </div>
 
-                    <div className="rounded-2xl border border-violet-100 bg-white p-7 shadow-sm lg:col-span-2">
+          <div className="rounded-xl bg-violet-50 p-5">
+            <h4 className="font-semibold text-gray-900">
+              Write a Professional Bio
+            </h4>
 
-                        <h2 className="text-xl font-bold text-[#6633ff]">
-                            About Me
-                        </h2>
+            <p className="mt-2 text-sm leading-7 text-gray-600">
+              A short and clear summary helps recruiters quickly understand your
+              background.
+            </p>
+          </div>
 
-                        <p className="mt-4 leading-8 text-gray-600">
-                            Passionate Frontend Developer specializing in
-                            React.js, Next.js and Tailwind CSS. I enjoy
-                            building modern, responsive and scalable web
-                            applications while continuously learning new
-                            technologies.
-                        </p>
+          <div className="rounded-xl bg-violet-50 p-5">
+            <h4 className="font-semibold text-gray-900">
+              Apply Consistently
+            </h4>
 
-                    </div>
-
-                    <div className="rounded-2xl border border-violet-100 bg-white p-7 shadow-sm">
-
-                        <h2 className="text-xl font-bold text-[#6633ff]">
-                            Skills
-                        </h2>
-
-                        <div className="mt-5 flex flex-wrap gap-3">
-
-                            {[
-                                "React",
-                                "Next.js",
-                                "Tailwind",
-                                "Node.js",
-                                "MongoDB",
-                                "Express",
-                                "TypeScript",
-                            ].map((skill) => (
-                                <span
-                                    key={skill}
-                                    className="rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-[#6633ff]"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                {/* Recent Activity */}
-
-                <div className="mt-8 rounded-2xl border border-violet-100 bg-white p-7 shadow-sm">
-
-                    <h2 className="text-xl font-bold text-[#6633ff]">
-                        Recent Activity
-                    </h2>
-
-                    <div className="mt-6 space-y-5">
-
-                        <div className="rounded-xl border p-4">
-                            Applied for <b>Frontend Developer</b> at Google
-                        </div>
-
-                        <div className="rounded-xl border p-4">
-                            Saved UI/UX Designer Position
-                        </div>
-
-                        <div className="rounded-xl border p-4">
-                            Updated Profile Information
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </main>
-    );
+            <p className="mt-2 text-sm leading-7 text-gray-600">
+              Consistent applications and an updated profile significantly
+              increase interview opportunities.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default ProfilePage;
