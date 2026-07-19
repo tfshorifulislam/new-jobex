@@ -28,9 +28,9 @@ export function ApplyBtnModal({ job }) {
           Apply Now
         </DialogTrigger>
 
-        <DialogContent className="max-w-md rounded-2xl p-0 overflow-hidden">
+        <DialogContent className="max-w-md overflow-hidden rounded-2xl p-0">
 
-          <div className="bg-linear-to-r from-indigo-600 to-violet-600 p-6 text-white">
+          <div className="w-full bg-linear-to-r from-indigo-600 to-violet-600 px-6 py-7 text-white">
 
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20">
               <ExternalLink className="h-7 w-7" />
@@ -87,7 +87,7 @@ export function ApplyBtnModal({ job }) {
 
             <div className="flex gap-3">
 
-              <DialogClose className="flex-1 border rounded-xl">
+              <DialogClose className="flex-1 border rounded-xl cursor-pointer">
                 <div>
                   Cancel
                 </div>

@@ -64,9 +64,19 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                     Job Description
                 </h2>
 
-                <p className="mt-4 leading-8 text-gray-600 whitespace-pre-line">
-                    {job.jobDescription || 'No Description'}
-                </p>
+                <div className="mt-4 leading-8 text-gray-600 [&_h1]:text-3xl [&_h1]:font-bold [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:text-xl [&_h3]:font-semibold [&_p]:mb-4 [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2 [&_strong]:font-semibold">
+                    {job.jobDescription ? (
+                        <p>{job.jobDescription}</p>
+                    ) : job.description ? (
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: job.description,
+                            }}
+                        />
+                    ) : (
+                        <p>No Description</p>
+                    )}
+                </div>
 
                 {/* Requirements */}
 
@@ -88,7 +98,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                     </h2>
 
                     <ul className="mt-5 flex flex-wrap gap-3">
-                        {skills }
+                        {skills}
                     </ul>
                 </div>
 
