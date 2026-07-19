@@ -1,8 +1,10 @@
 import { Bookmark, EllipsisVertical } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
+import SavedJobs from './SavedJobs';
 
 const LeftSideContainer = ({ job, data, requirements, skills }) => {
+
     return (
         <div className="lg:col-span-2 space-y-8">
 
@@ -20,9 +22,7 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                     </div>
 
                     <div className="flex items-center gap-2 shrink-0">
-                        <button className="rounded-full border border-gray-200 p-2 hover:bg-gray-100 transition">
-                            <Bookmark size={20} />
-                        </button>
+                        <SavedJobs job={job} />
 
                         <button className="rounded-full border border-gray-200 p-2 hover:bg-gray-100 transition">
                             <EllipsisVertical size={20} />
