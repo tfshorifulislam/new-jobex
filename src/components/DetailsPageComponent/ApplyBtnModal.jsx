@@ -25,7 +25,7 @@ export function ApplyBtnModal({ job }) {
       <Dialog>
         <DialogTrigger className="w-full rounded-xl bg-[#6633ff] py-3 font-semibold text-white hover:bg-[#5b2ef5] cursor-pointer">
           Apply Now
-      </DialogTrigger>
+        </DialogTrigger>
 
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
@@ -89,27 +89,31 @@ export function ApplyBtnModal({ job }) {
   // ==========================
   // NewJobex Job
   // ==========================
-  return (
-    <Dialog>
-      <DialogTrigger className="w-full rounded-xl bg-[#6633ff] py-3 font-semibold text-white hover:bg-[#5b2ef5] cursor-pointer">
+  else {
+    return (
+      <Dialog>
+        <DialogTrigger className="w-full rounded-xl bg-[#6633ff] py-3 font-semibold text-white hover:bg-[#5b2ef5] cursor-pointer">
           Apply Now
-      </DialogTrigger>
+        </DialogTrigger>
 
-      <DialogContent className="max-w-2xl">
-        <DialogHeader>
-          <DialogTitle>
-            Apply for {job.jobTitle}
-          </DialogTitle>
+        <DialogContent className="w-[calc(100vw-22px)] max-w-2xl rounded-2xl p-6">
+          <DialogHeader>
+            <DialogTitle className='leading-6'>
+              Apply for {job.jobTitle}
+            </DialogTitle>
 
-          <DialogDescription>
-            Complete the form below to submit your
-            application.
-          </DialogDescription>
-        </DialogHeader>
+            <DialogDescription>
+              Complete the form below to submit your
+              application.
+            </DialogDescription>
+          </DialogHeader>
 
-        {/* তোমার existing apply form */}
-        <ApplyForm job={job} />
-      </DialogContent>
-    </Dialog>
-  );
+          {/* তোমার existing apply form */}
+          <div className="">
+            <ApplyForm job={job} />
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
 }

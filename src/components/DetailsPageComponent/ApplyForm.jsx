@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "../ui/textarea";
 
 const ApplyForm = ({ job }) => {
     const [loading, setLoading] = useState(false);
@@ -21,92 +24,89 @@ const ApplyForm = ({ job }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-6">
 
-            <div>
-                <label className="mb-2 block text-sm font-medium">
-                    Full Name
-                </label>
+            <div className="space-y-2">
+                <Label htmlFor="name">Full Name</Label>
 
-                <input
+                <Input
+                    id="name"
                     type="text"
-                    required
                     placeholder="Enter your full name"
-                    className="w-full rounded-lg border px-4 py-3 outline-none focus:border-blue-500"
+                    required
                 />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+           
 
-                <div>
-                    <label className="mb-2 block text-sm font-medium">
-                        Email
-                    </label>
+                <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
 
-                    <input
+                    <Input
+                        id="email"
                         type="email"
-                        required
                         placeholder="you@example.com"
-                        className="w-full rounded-lg border px-4 py-3 outline-none focus:border-blue-500"
-                    />
-                </div>
-
-                <div>
-                    <label className="mb-2 block text-sm font-medium">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
                         required
-                        placeholder="+8801XXXXXXXXX"
-                        className="w-full rounded-lg border px-4 py-3 outline-none focus:border-blue-500"
                     />
                 </div>
 
-            </div>
+                <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number</Label>
 
-            <div>
-                <label className="mb-2 block text-sm font-medium">
+                    <Input
+                        id="phone"
+                        type="tel"
+                         placeholder="+1 234 567 8901"
+                        required
+                    />
+                </div>
+
+        
+
+            <div className="space-y-2">
+                <Label htmlFor="resume">
                     Resume (PDF)
-                </label>
+                </Label>
 
-                <input
+                <Input
+                    id="resume"
                     type="file"
                     accept=".pdf"
                     required
-                    className="w-full rounded-lg border p-3"
                 />
             </div>
 
-            <div>
-                <label className="mb-2 block text-sm font-medium">
+            <div className="space-y-2">
+                <Label htmlFor="portfolio">
                     Portfolio / Website
-                </label>
+                </Label>
 
-                <input
+                <Input
+                    id="portfolio"
                     type="url"
                     placeholder="https://yourportfolio.com"
-                    className="w-full rounded-lg border px-4 py-3 outline-none focus:border-blue-500"
                 />
             </div>
 
-            <div>
-                <label className="mb-2 block text-sm font-medium">
-                    Cover Letter
-                </label>
+            <div className="space-y-2">
+                <Label htmlFor="cover">
+                    Cover Letter{" "}
+                    <span className="text-xs font-normal text-muted-foreground">
+                        (optional)
+                    </span>
+                </Label>
 
-                <textarea
-                    rows={5}
+                <Textarea
+                    id="cover"
+                    rows={6}
                     placeholder={`Why are you interested in the ${job?.jobTitle} position?`}
-                    className="w-full rounded-lg border px-4 py-3 outline-none focus:border-blue-500"
                 />
             </div>
 
             <Button
                 type="submit"
                 disabled={loading}
-                className="w-full h-11"
+                className="h-11 w-full"
             >
                 {loading ? "Submitting..." : "Submit Application"}
             </Button>
