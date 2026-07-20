@@ -1,58 +1,65 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
-
-import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import Footer from "@/components/shared/Footer";
 
-const inter = Inter({
+// Plus Jakarta Sans — a geometric, high-contrast sans built for product UI.
+// Reads more distinctive than Inter at display sizes (headlines, hero copy)
+// while staying just as legible for body text and form controls.
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
+const SITE_URL = "https://newjobex.com";
+
 export const metadata = {
-  metadataBase: new URL("https://newjobex.com"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "NewJobex - Find Your Dream Job & Hire Top Talent",
+    default: "NewJobex — Find your next role or hire top talent",
     template: "%s | NewJobex",
   },
 
   description:
-    "NewJobex is a modern job portal connecting job seekers with top employers. Discover remote, full-time, part-time, internship, and freelance opportunities while helping companies hire the best talent.",
+    "NewJobex is a modern job portal connecting job seekers with verified employers worldwide. Browse remote, full-time, part-time, internship, and freelance roles, apply in minutes, and hire faster with AI-assisted matching.",
+
+  applicationName: "NewJobex",
 
   keywords: [
     "NewJobex",
-    "Job Portal",
-    "Jobs",
-    "Career",
-    "Hiring",
-    "Recruitment",
-    "Remote Jobs",
-    "Internships",
-    "Full Time Jobs",
-    "Part Time Jobs",
-    "Freelance Jobs",
-    "Software Engineer Jobs",
-    "Frontend Developer Jobs",
-    "Backend Developer Jobs",
-    "React Jobs",
-    "Next.js Jobs",
-    "Tech Jobs",
-    "Find Jobs",
-    "Hire Developers",
-    "Job Search",
+    "job portal",
+    "job search",
+    "find jobs",
+    "career opportunities",
+    "hiring platform",
+    "recruitment software",
+    "remote jobs",
+    "internships",
+    "full time jobs",
+    "part time jobs",
+    "freelance jobs",
+    "software engineer jobs",
+    "frontend developer jobs",
+    "backend developer jobs",
+    "react jobs",
+    "next.js jobs",
+    "tech jobs",
+    "hire developers",
+    "post a job",
   ],
 
-  authors: [
-    {
-      name: "tf shoriful islam",
-    },
-  ],
-
+  authors: [{ name: "TF Shoriful Islam", url: SITE_URL }],
   creator: "codegen",
   publisher: "codegen",
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 
   alternates: {
     canonical: "/",
@@ -71,10 +78,10 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "NewJobex - Find Your Dream Job & Hire Top Talent",
+    title: "NewJobex — Find your next role or hire top talent",
     description:
-      "Explore thousands of job opportunities and connect with top employers through NewJobex.",
-    url: "https://newjobex.com",
+      "Browse thousands of verified job opportunities or post a role and reach qualified candidates fast. Remote, full-time, internships, and more.",
+    url: SITE_URL,
     siteName: "NewJobex",
     type: "website",
     locale: "en_US",
@@ -83,17 +90,19 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "NewJobex Job Portal",
+        alt: "NewJobex — modern job portal",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "NewJobex - Find Your Dream Job",
+    title: "NewJobex — Find your next role or hire top talent",
     description:
-      "Find jobs, internships, remote opportunities, and hire top talent with NewJobex.",
+      "A modern job portal for job seekers and recruiters. Search verified roles or post a job in minutes.",
     images: ["/og-image.png"],
+    // site: "@newjobex",
+    // creator: "@newjobex",
   },
 
   icons: {
@@ -102,16 +111,34 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
 
+  manifest: "/site.webmanifest",
+
   category: "Jobs & Careers",
+
+  // Uncomment and fill in once you've registered these with each provider.
+  // verification: {
+  //   google: "",
+  //   yandex: "",
+  // },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={` ${inter.variable} h-full antialiased`}
+      className={`${jakarta.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col bg-white font-sans text-gray-900 selection:bg-[#6633ff]/15 selection:text-[#6633ff]">
         <Navbar />
         {children}
         <Footer />
