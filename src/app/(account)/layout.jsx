@@ -16,7 +16,7 @@ const layout = ({ children }) => {
 
       {/* Main Content */}
       <main className="md:flex-1 overflow-y-auto">
-        <div className="p-8">{children}</div>
+        <div className="w-11/12 mx-auto">{children}</div>
       </main>
     </div>
   );

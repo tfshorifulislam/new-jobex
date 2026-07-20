@@ -110,7 +110,7 @@ export default function Navbar() {
 
                         {user && (
                             <NavigationMenuItem>
-                                <NavigationMenuLink href="/dashboard">
+                                <NavigationMenuLink href={user?.role === "recruiter" ? "/recruiter" : "/seeker"}>
                                     Dashboard
                                 </NavigationMenuLink>
                             </NavigationMenuItem>

@@ -17,7 +17,7 @@ const Sidebar = () => {
 
     const { data: session } = useSession();
     const role = session?.user?.role;
-    
+
     const pathname = usePathname();
 
     const seekerMenus = [
@@ -46,27 +46,27 @@ const Sidebar = () => {
     const recruiterMenus = [
         {
             title: "Overview",
-            href: "/dashboard",
+            href: "/recruiter",
             icon: LayoutDashboard,
         },
         {
             title: "Received Applications",
-            href: "/dashboard/applications",
+            href: "/recruiter/applications",
             icon: Users,
         },
         {
             title: "Post Job",
-            href: "/dashboard/post-job",
+            href: "/recruiter/post-job",
             icon: FileText,
         },
         {
             title: "My Jobs",
-            href: "/dashboard/my-jobs",
+            href: "/recruiter/my-jobs",
             icon: ClipboardList,
         },
         {
             title: "Settings",
-            href: "/dashboard/settings",
+            href: "/recruiter/settings",
             icon: Settings,
         },
     ];
