@@ -12,10 +12,10 @@ import {
     Users,
     LogOut,
 } from "lucide-react";
-import { useSession } from "@/lib/auth-client";
+import { signOut, useSession } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const Sidebar = () => {
-
     const { data: session } = useSession();
     const role = session?.user?.role;
 
@@ -142,13 +142,6 @@ const Sidebar = () => {
                             {session?.user?.email || "Not signed in"}
                         </p>
                     </div>
-                    <button
-                        type="button"
-                        title="Log out"
-                        className="shrink-0 rounded-lg p-2 text-gray-400 transition hover:bg-red-50 hover:text-red-500"
-                    >
-                        <LogOut size={16} />
-                    </button>
                 </div>
             </div>
         </aside>
