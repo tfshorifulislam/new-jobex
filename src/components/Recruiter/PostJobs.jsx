@@ -40,7 +40,9 @@ function useRequisitionRef() {
 }
 
 const SectionNumber = ({ n }) => (
-    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#2B6F60]/30 text-[13px] text-[#2B6F60] dark:border-[#5fae9c]/40 dark:text-[#7fc4b2]">
+    <span
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#6633ff]/30 text-[13px] text-[#6633ff] dark:border-violet-400/40 dark:text-violet-400"
+    >
         {n}
     </span>
 );
@@ -160,8 +162,8 @@ const PostJobs = () => {
 
     const inputCls =
         "h-12 rounded-none border-0 border-b border-[#DCD9CC] bg-transparent px-0 text-[15px] text-[#1C2321] " +
-        "placeholder:text-[#9A9686] focus-visible:border-[#2B6F60] focus-visible:ring-0 dark:border-zinc-700 " +
-        "dark:text-zinc-100 dark:focus-visible:border-[#5fae9c]";
+        "placeholder:text-[#9A9686] focus-visible:border-[#6633ff] focus-visible:ring-0 dark:border-zinc-700 " +
+        "dark:text-zinc-100 dark:focus-visible:border-violet-400";
 
     const labelCls =
         "text-[11px] font-medium uppercase tracking-[0.12em] text-[#7A7666] dark:text-zinc-500";
@@ -171,10 +173,14 @@ const PostJobs = () => {
             {/* Requisition header */}
             <div className="mb-10 flex items-end justify-between border-b border-[#1C2321]/10 pb-6 dark:border-zinc-800">
                 <div>
-                    <p className="mb-2 text-[12px] tracking-[0.18em] text-[#2B6F60] dark:text-[#7fc4b2]">
+                    <p
+                        className="mb-2 text-[12px] font-medium tracking-[0.18em] text-[#6633ff] dark:text-violet-400"
+                    >
                         JOB REQUISITION · NEWJOBEX
                     </p>
-                    <h1 className="text-4xl font-medium text-[#1C2321] md:text-5xl dark:text-zinc-50">
+                    <h1
+                        className="text-4xl font-bold text-[#1C2321] md:text-5xl dark:text-zinc-50"
+                    >
                         Post a new role
                     </h1>
                 </div>
@@ -191,7 +197,9 @@ const PostJobs = () => {
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr]">
                         <SectionNumber n="01" />
                         <div>
-                            <h2 className="mb-6 text-lg font-medium text-[#1C2321] dark:text-zinc-100">
+                            <h2
+                                className="mb-6 text-lg font-semibold text-[#1C2321] dark:text-zinc-100"
+                            >
                                 Position
                             </h2>
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
@@ -268,7 +276,9 @@ const PostJobs = () => {
                     <div className="grid grid-cols-1 gap-6 border-t border-[#1C2321]/10 pt-14 md:grid-cols-[auto_1fr] dark:border-zinc-800">
                         <SectionNumber n="02" />
                         <div>
-                            <h2 className="mb-6 text-lg font-medium text-[#1C2321] dark:text-zinc-100">
+                            <h2
+                                className="mb-6 text-lg font-semibold text-[#1C2321] dark:text-zinc-100"
+                            >
                                 Location and pay
                             </h2>
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
@@ -307,7 +317,9 @@ const PostJobs = () => {
                     <div className="grid grid-cols-1 gap-6 border-t border-[#1C2321]/10 pt-14 md:grid-cols-[auto_1fr] dark:border-zinc-800">
                         <SectionNumber n="03" />
                         <div>
-                            <h2 className="mb-6 text-lg font-medium text-[#1C2321] dark:text-zinc-100">
+                            <h2
+                                className="mb-6 text-lg font-semibold text-[#1C2321] dark:text-zinc-100"
+                            >
                                 Description
                             </h2>
                             <div className="space-y-2">
@@ -318,7 +330,7 @@ const PostJobs = () => {
                                     id="description"
                                     rows={6}
                                     placeholder="Describe the role — what the person will own, what's required, and what's on offer."
-                                    className="resize-y rounded-none border-0 border-b border-[#DCD9CC] bg-transparent px-0 py-3 text-[15px] leading-relaxed focus-visible:border-[#2B6F60] focus-visible:ring-0 dark:border-zinc-700 dark:focus-visible:border-[#5fae9c]"
+                                    className="resize-y rounded-none border-0 border-b border-[#DCD9CC] bg-transparent px-0 py-3 text-[15px] leading-relaxed focus-visible:border-[#6633ff] focus-visible:ring-0 dark:border-zinc-700 dark:focus-visible:border-violet-400"
                                     value={form.description}
                                     onChange={(e) => setForm({ ...form, description: e.target.value })}
                                     required
@@ -331,7 +343,9 @@ const PostJobs = () => {
                     <div className="grid grid-cols-1 gap-6 border-t border-[#1C2321]/10 pt-14 md:grid-cols-[auto_1fr] dark:border-zinc-800">
                         <SectionNumber n="04" />
                         <div>
-                            <h2 className="mb-1 text-lg font-medium text-[#1C2321] dark:text-zinc-100">
+                            <h2
+                                className="mb-1 text-lg font-semibold text-[#1C2321] dark:text-zinc-100"
+                            >
                                 Skills and expertise
                             </h2>
                             <p className="mb-6 text-sm text-[#7A7666] dark:text-zinc-500">
@@ -351,7 +365,7 @@ const PostJobs = () => {
                                     type="button"
                                     onClick={() => handleAddSkill()}
                                     disabled={!skillInput.trim()}
-                                    className="flex h-12 items-center gap-1.5 rounded-full bg-[#1C2321] px-5 text-sm font-medium text-white hover:bg-[#2B6F60] disabled:opacity-40 dark:bg-zinc-100 dark:text-zinc-900"
+                                    className="flex h-12 items-center gap-1.5 rounded-full bg-linear-to-r from-indigo-600 to-violet-600 px-5 text-sm font-medium text-white hover:opacity-90 disabled:opacity-40"
                                 >
                                     <Plus className="h-4 w-4" />
                                     Add
@@ -363,13 +377,13 @@ const PostJobs = () => {
                                     {form.skillsAndExpertise.map((skill) => (
                                         <span
                                             key={skill}
-                                            className="inline-flex items-center gap-1.5 rounded-full border border-[#2B6F60]/30 bg-[#2B6F60]/[0.06] px-3 py-1.5 text-sm text-[#215347] dark:border-[#5fae9c]/40 dark:bg-[#5fae9c]/10 dark:text-[#8fd0bf]"
+                                            className="inline-flex items-center gap-1.5 rounded-full border border-[#6633ff]/30 bg-[#6633ff]/[0.06] px-3 py-1.5 text-sm text-[#5522cc] dark:border-violet-400/40 dark:bg-violet-400/10 dark:text-violet-300"
                                         >
                                             {skill}
                                             <button
                                                 type="button"
                                                 onClick={() => handleRemoveSkill(skill)}
-                                                className="rounded-full p-0.5 text-[#215347]/60 transition hover:bg-[#2B6F60]/15 hover:text-[#215347] dark:text-[#8fd0bf]/70 dark:hover:bg-[#5fae9c]/20"
+                                                className="rounded-full p-0.5 text-[#5522cc]/60 transition hover:bg-[#6633ff]/15 hover:text-[#5522cc] dark:text-violet-300/70 dark:hover:bg-violet-400/20"
                                                 title="Remove skill"
                                             >
                                                 <X className="h-3.5 w-3.5" />
@@ -380,7 +394,9 @@ const PostJobs = () => {
                             )}
 
                             <div>
-                                <span className="mb-2 block text-[11px] tracking-[0.12em] text-[#9A9686] dark:text-zinc-500">
+                                <span
+                                    className="mb-2 block text-[11px] tracking-[0.12em] text-[#9A9686] dark:text-zinc-500"
+                                >
                                     SUGGESTED
                                 </span>
                                 <div className="flex flex-wrap gap-1.5">
@@ -392,7 +408,7 @@ const PostJobs = () => {
                                                 key={skill}
                                                 type="button"
                                                 onClick={() => handleAddSkill(skill)}
-                                                className="cursor-pointer rounded-full border border-dashed border-[#DCD9CC] px-3 py-1.5 text-xs text-[#7A7666] transition hover:border-[#2B6F60] hover:text-[#2B6F60] dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-[#5fae9c] dark:hover:text-[#7fc4b2]"
+                                                className="cursor-pointer rounded-full border border-dashed border-[#DCD9CC] px-3 py-1.5 text-xs text-[#7A7666] transition hover:border-[#6633ff] hover:text-[#6633ff] dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-violet-400 dark:hover:text-violet-400"
                                             >
                                                 + {skill}
                                             </button>
@@ -406,7 +422,9 @@ const PostJobs = () => {
                     <div className="grid grid-cols-1 gap-6 border-t border-[#1C2321]/10 pt-14 md:grid-cols-[auto_1fr] dark:border-zinc-800">
                         <SectionNumber n="05" />
                         <div>
-                            <h2 className="mb-6 text-lg font-medium text-[#1C2321] dark:text-zinc-100">
+                            <h2
+                                className="mb-6 text-lg font-semibold text-[#1C2321] dark:text-zinc-100"
+                            >
                                 Filed by
                             </h2>
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
@@ -440,8 +458,8 @@ const PostJobs = () => {
                         {message && (
                             <div
                                 className={`mb-6 rounded-md border px-4 py-3 text-sm ${message.type === "success"
-                                        ? "border-[#2B6F60]/30 bg-[#2B6F60]/[0.06] text-[#215347] dark:border-[#5fae9c]/30 dark:bg-[#5fae9c]/10 dark:text-[#8fd0bf]"
-                                        : "border-red-200 bg-red-50 text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
+                                    ? "border-[#6633ff]/30 bg-[#6633ff]/[0.06] text-[#5522cc] dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-300"
+                                    : "border-red-200 bg-red-50 text-red-700 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
                                     }`}
                             >
                                 {message.text}
@@ -466,7 +484,7 @@ const PostJobs = () => {
                                 <Button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="group h-14 w-full shrink-0 rounded-full bg-[#1C2321] px-8 text-base font-medium text-white transition hover:bg-[#2B6F60] disabled:cursor-not-allowed disabled:opacity-50 md:w-auto dark:bg-zinc-100 dark:text-zinc-900"
+                                    className="group h-14 w-full shrink-0 rounded-full bg-linear-to-r from-indigo-600 to-violet-600 px-8 text-base font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 md:w-auto"
                                 >
                                     {isSubmitting ? (
                                         <span className="flex items-center justify-center gap-2">
