@@ -72,7 +72,7 @@ const Sidebar = ({ role = "seeker" }) => {
     <aside className="w-72 h-screen bg-white border-r sticky top-0">
       {/* Logo */}
       <div className="border-b p-6">
-        <h2 className="text-2xl font-bold text-blue-600">NewJobex</h2>
+        <h2 className="text-2xl font-bold text-[#6633ff]">NewJobex</h2>
         <p className="text-sm text-gray-500 capitalize">
           {role} Dashboard
         </p>
@@ -91,8 +91,8 @@ const Sidebar = ({ role = "seeker" }) => {
               className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all
                 ${
                   active
-                    ? "bg-blue-600 text-white shadow"
-                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    ? "bg-linear-to-r from-indigo-600 to-violet-600 text-white shadow"
+                    : "text-gray-700 hover:bg-blue-50 hover:text-[#6633ff]"
                 }`}
             >
               <Icon size={20} />
