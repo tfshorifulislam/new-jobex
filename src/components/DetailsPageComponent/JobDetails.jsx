@@ -1,4 +1,3 @@
-
 import {
     BriefcaseBusiness,
     Building2,
@@ -17,15 +16,6 @@ import { ApplyBtnModal } from "./ApplyBtnModal";
 
 const JobDetailsCard = async ({ job }) => {
 
-    // console.log(job);
-    // console.log(job.postedAt);
-
-    // const date = new Date(job.postedAt);
-
-    // console.log(date);
-    // console.log(date.getTime());
-    // console.log(isNaN(date.getTime()));
-
     const data = [
         { icon: MapPin, label: job?.location },
         { icon: Building2, label: job?.workplaceType },
@@ -38,14 +28,11 @@ const JobDetailsCard = async ({ job }) => {
         },
         { icon: BriefcaseBusiness, label: job?.experienceRequired },
         { icon: Wallet, label: job?.salary },
-    ];
+    ].filter((item) => item.label);
 
     const requirements = job?.jobRequirements?.map((item, index) => (
         <li key={index} className="flex items-start gap-2 text-md text-gray-600 leading-relaxed">
-
-
-            <ChevronRight className="w-4 h-4 text-[#7c3aed] mt-1 shrink-0" />
-
+            <ChevronRight className="w-4 h-4 text-[#6633ff] mt-1 shrink-0" />
             <span>{item}</span>
         </li>
     ));
@@ -53,7 +40,7 @@ const JobDetailsCard = async ({ job }) => {
     const skills = job?.skillsAndExpertise?.map((item, index) => (
         <li
             key={index}
-            className=" list-none rounded-full border border-blue-100  bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 transition-all  hover:bg-blue-100 sm:px-4 sm:py-2 sm:text-sm "
+            className="list-none rounded-full border border-[#6633ff]/20 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-[#6633ff] transition-all hover:bg-indigo-100 sm:px-4 sm:py-2 sm:text-sm"
         >
             {item}
         </li>
@@ -76,9 +63,8 @@ const JobDetailsCard = async ({ job }) => {
                         skills={skills}
                     />
 
-                    <div className="sticky top-24 space-y-6">
-                        <div className="hidden lg:block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-
+                    <div className="sticky top-24 space-y-6 self-start">
+                        <div className="hidden lg:block rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
                             <ApplyBtnModal
                                 job={job}
                             />
@@ -93,7 +79,7 @@ const JobDetailsCard = async ({ job }) => {
             </div>
 
             {/* Mobile Apply Button */}
-            <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white p-3 lg:hidden">
+            <div className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-100 bg-white/95 p-3 shadow-[0_-4px_12px_rgba(0,0,0,0.04)] backdrop-blur-md lg:hidden">
                 <ApplyBtnModal
                     job={job}
                 />
