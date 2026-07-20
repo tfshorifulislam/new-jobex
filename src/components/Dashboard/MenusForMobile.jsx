@@ -86,22 +86,22 @@ const MenusForMobile = () => {
         <div>
             <Sheet>
                 <SheetTrigger className="w-11/12 mx-auto h-12 rounded-xl bg-linear-to-r from-indigo-600 to-violet-600 text-white font-semibold flex items-center justify-center gap-2 mt-2">
-                    <button className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <Menu size={20} />
                         Dashboard Menu
-                    </button>
+                    </div>
                 </SheetTrigger>
 
                 <SheetContent side="top" className="rounded-b-3xl w-11/12 mx-auto">
                     <SheetHeader>
-                        <SheetTitle className="text-left text-[#6633ff]">
+                        <SheetTitle className="text-left font-bold text-[#6633ff]">
                             {role === "recruiter"
                                 ? "Recruiter Dashboard"
                                 : "Seeker Dashboard"}
                         </SheetTitle>
                     </SheetHeader>
 
-                    <div className="mt-6 space-y-2 px-4">
+                    <div className=" space-y-2 px-4">
                         {menus.map((item) => {
                             const Icon = item.icon;
                             const active = pathname === item.href;
