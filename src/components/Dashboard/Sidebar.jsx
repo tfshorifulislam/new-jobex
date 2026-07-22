@@ -56,8 +56,8 @@ const Sidebar = () => {
             icon: FileText,
         },
         {
-            title: "My Jobs",
-            href: "/recruiter/my-jobs",
+            title: "Pending Jobs",
+            href: "/recruiter/pending-jobs",
             icon: ClipboardList,
         },
     ];
