@@ -24,17 +24,17 @@ const Sidebar = () => {
     const seekerMenus = [
         {
             title: "Dashboard",
-            href: "/dashboard",
+            href: "/seeker",
             icon: LayoutDashboard,
         },
         {
             title: "Saved Jobs",
-            href: "/dashboard/saved-jobs",
+            href: "/seeker/saved-jobs",
             icon: Bookmark,
         },
         {
             title: "Applied Jobs",
-            href: "/dashboard/applied-jobs",
+            href: "/seeker/applied-jobs",
             icon: BriefcaseBusiness,
         },
     ];

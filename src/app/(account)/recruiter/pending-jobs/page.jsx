@@ -31,6 +31,7 @@ const PendingCardSkeleton = () => (
 
 const PendingPage = () => {
     const { data: session } = useSession();
+    const email= session?.user?.email;
 
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -41,8 +42,9 @@ const PendingPage = () => {
         const fetchJobs = async () => {
             try {
                 const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/pendingJobs?email=${session.user.email}`
-                );
+                    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/pendingJobs?email=${email}`,{
+                        cache: 'no-cache'
+                    });
 
                 const data = await res.json();
 
