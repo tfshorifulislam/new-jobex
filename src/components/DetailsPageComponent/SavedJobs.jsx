@@ -49,7 +49,8 @@ const SavedJobs = ({ job }) => {
                     },
                     body: JSON.stringify({
                         jobId: job._id,
-                        userId: session.user.id, // অথবা _id
+                        userId: session?.user?.id,
+                        job
                     }),
                 }
             );
