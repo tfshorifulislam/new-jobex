@@ -30,13 +30,6 @@ const JobDetailsCard = async ({ job }) => {
         { icon: Wallet, label: job?.salary },
     ].filter((item) => item.label);
 
-    const requirements = job?.jobRequirements?.map((item, index) => (
-        <li key={index} className="flex items-start gap-2 text-md text-gray-600 leading-relaxed">
-            <ChevronRight className="w-4 h-4 text-[#6633ff] mt-1 shrink-0" />
-            <span>{item}</span>
-        </li>
-    ));
-
     const skills = job?.skillsAndExpertise?.map((item, index) => (
         <li
             key={index}
@@ -59,7 +52,6 @@ const JobDetailsCard = async ({ job }) => {
                     <LeftSideContainer
                         job={job}
                         data={data}
-                        requirements={requirements}
                         skills={skills}
                     />
 

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import SavedJobs from './SavedJobs';
 
-const LeftSideContainer = ({ job, data, requirements, skills }) => {
+const LeftSideContainer = ({ job, data, skills }) => {
 
     return (
         <div className="lg:col-span-2 space-y-8">
@@ -76,18 +76,6 @@ const LeftSideContainer = ({ job, data, requirements, skills }) => {
                     ) : (
                         <p>No Description</p>
                     )}
-                </div>
-
-                {/* Requirements */}
-
-                <div className="mt-10">
-                    <h2 className="text-2xl font-bold text-slate-900">
-                        Job Requirements
-                    </h2>
-
-                    <ul className="mt-5 space-y-3 text-sm text-gray-600">
-                        {requirements || 'No Requirements'}
-                    </ul>
                 </div>
 
                 {/* Skills */}
