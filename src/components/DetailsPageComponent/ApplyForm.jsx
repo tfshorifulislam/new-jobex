@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
+import { useSession } from "@/lib/auth-client";
 
 const ApplyForm = ({ job }) => {
     const [loading, setLoading] = useState(false);
+
+    const { data: session } = useSession();
+    const user = session?.user;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,34 +38,36 @@ const ApplyForm = ({ job }) => {
                     type="text"
                     placeholder="Enter your full name"
                     required
+                    value={user?.name}
+                    readOnly
                 />
             </div>
 
-           
 
-                <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
 
-                    <Input
-                        id="email"
-                        type="email"
-                        placeholder="you@example.com"
-                        required
-                    />
-                </div>
+            <div className="space-y-2">
+                <Label htmlFor="email">Email Address</Label>
+                <Input
+                    id="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    required
+                    value={user?.email}
+                    readOnly
+                />
+            </div>
 
-                <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
+            <div className="space-y-2">
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+1 234 567 8901"
+                    required
+                />
+            </div>
 
-                    <Input
-                        id="phone"
-                        type="tel"
-                         placeholder="+1 234 567 8901"
-                        required
-                    />
-                </div>
 
-        
 
             <div className="space-y-2">
                 <Label htmlFor="resume">
